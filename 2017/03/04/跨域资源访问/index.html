@@ -5,25 +5,22 @@
   
   <title>跨域资源访问 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="document.domain:用来得到当前网页的域名。可以给domain赋值，但是有限制，只能赋成当前的域名或者基础域名。利用document.domain实现跨域，前提条件是，这两个域必须属于同一个基础域名！而且所用的协议、端口都要一致。两个子域名：12aaa.xxx.combbb.xxx.com
-
-
-aaa里的一个网页（a.html）引入了bbb 里的一个网页（b.html），这时a.ht">
+  <meta name="description" content="document.domain:用来得到当前网页的域名。可以给domain赋值，但是有限制，只能赋成当前的域名或者基础域名。利用document.domain实现跨域，前提条件是，这两个域必须属于同一个基础域名！而且所用的协议、端口都要一致。两个子域名：
+12aaa.xxx.combbb.xxx.com
+ aaa里的一个网页（a.html）引入了bbb 里的一个网页（b.html），这时a.ht">
 <meta property="og:type" content="article">
 <meta property="og:title" content="跨域资源访问">
 <meta property="og:url" content="http://yoursite.com/2017/03/04/跨域资源访问/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="document.domain:用来得到当前网页的域名。可以给domain赋值，但是有限制，只能赋成当前的域名或者基础域名。利用document.domain实现跨域，前提条件是，这两个域必须属于同一个基础域名！而且所用的协议、端口都要一致。两个子域名：12aaa.xxx.combbb.xxx.com
-
-
-aaa里的一个网页（a.html）引入了bbb 里的一个网页（b.html），这时a.ht">
-<meta property="og:updated_time" content="2017-03-04T06:16:21.669Z">
+<meta property="og:description" content="document.domain:用来得到当前网页的域名。可以给domain赋值，但是有限制，只能赋成当前的域名或者基础域名。利用document.domain实现跨域，前提条件是，这两个域必须属于同一个基础域名！而且所用的协议、端口都要一致。两个子域名：
+12aaa.xxx.combbb.xxx.com
+ aaa里的一个网页（a.html）引入了bbb 里的一个网页（b.html），这时a.ht">
+<meta property="og:updated_time" content="2017-03-04T06:20:48.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域资源访问">
-<meta name="twitter:description" content="document.domain:用来得到当前网页的域名。可以给domain赋值，但是有限制，只能赋成当前的域名或者基础域名。利用document.domain实现跨域，前提条件是，这两个域必须属于同一个基础域名！而且所用的协议、端口都要一致。两个子域名：12aaa.xxx.combbb.xxx.com
-
-
-aaa里的一个网页（a.html）引入了bbb 里的一个网页（b.html），这时a.ht">
+<meta name="twitter:description" content="document.domain:用来得到当前网页的域名。可以给domain赋值，但是有限制，只能赋成当前的域名或者基础域名。利用document.domain实现跨域，前提条件是，这两个域必须属于同一个基础域名！而且所用的协议、端口都要一致。两个子域名：
+12aaa.xxx.combbb.xxx.com
+ aaa里的一个网页（a.html）引入了bbb 里的一个网页（b.html），这时a.ht">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -216,32 +213,36 @@ aaa里的一个网页（a.html）引入了bbb 里的一个网页（b.html），�
       
           
         <ol>
-<li>document.domain:用来得到当前网页的域名。可以给domain赋值，但是有限制，只能赋成当前的域名或者基础域名。利用document.domain实现跨域，前提条件是，<strong>这两个域必须属于同一个基础域名！而且所用的协议、端口都要一致。</strong><br>两个子域名：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">aaa.xxx.com</div><div class="line">bbb.xxx.com</div></pre></td></tr></table></figure>
+<li><p>document.domain:用来得到当前网页的域名。可以给domain赋值，但是有限制，只能赋成当前的域名或者基础域名。利用document.domain实现跨域，前提条件是，<strong>这两个域必须属于同一个基础域名！而且所用的协议、端口都要一致。</strong><br>两个子域名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">aaa.xxx.com</div><div class="line">bbb.xxx.com</div></pre></td></tr></table></figure>
+<p> aaa里的一个网页（a.html）引入了bbb 里的一个网页（b.html），这时a.html里是不能操作b.html里面的内容的。因为document.domain不一样，一个是aaa.xxx.com，另一个是bbb.xxx.com。这时可以通过Javascript将两个页面的domain改成一样的，需要在a.html里与b.html里都加入：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.domain = &quot;xxx.com&quot;;</div></pre></td></tr></table></figure>
+<p> 这样这两个页面就可以互相操作了。也就是实现了同一基础域名之间的”跨域”。</p>
 </li>
-</ol>
-<p>aaa里的一个网页（a.html）引入了bbb 里的一个网页（b.html），这时a.html里是不能操作b.html里面的内容的。因为document.domain不一样，一个是aaa.xxx.com，另一个是bbb.xxx.com。这时可以通过Javascript将两个页面的domain改成一样的，需要在a.html里与b.html里都加入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.domain = &quot;xxx.com&quot;;</div></pre></td></tr></table></figure></p>
-<p>这样这两个页面就可以互相操作了。也就是实现了同一基础域名之间的”跨域”。</p>
-<ol>
-<li>jsonp:通过script标签引入一个js文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入。所以jsonp是需要服务器端的页面进行相应的配合的。比如：有个a.html页面，它里面的代码需要利用ajax获取一个不同域上的json数据，假设这个json数据地址是<a href="http://example.com/data.php" target="_blank" rel="external">http://example.com/data.php</a>, 那么a.html中的代码就可以这样：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    function dosomething(jsondata)&#123;</div><div class="line">        //处理获得的json数据</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;script src=&quot;http://example.com/data.php?callback=dosomething&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<li><p>jsonp:通过script标签引入一个js文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入。所以jsonp是需要服务器端的页面进行相应的配合的。比如：有个a.html页面，它里面的代码需要利用ajax获取一个不同域上的json数据，假设这个json数据地址是<a href="http://example.com/data.php" target="_blank" rel="external">http://example.com/data.php</a>, 那么a.html中的代码就可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    function dosomething(jsondata)&#123;</div><div class="line">        //处理获得的json数据</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;script src=&quot;http://example.com/data.php?callback=dosomething&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p> 因为是当做一个js文件来引入的，所以<a href="http://example.com/data.php" target="_blank" rel="external">http://example.com/data.php</a> 返回的必须是一个能执行的js文件，所以这个页面的php代码可能是这样的:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$callback = $_GET[&apos;callback&apos;]; //得到回调函数名</div><div class="line">$data = array[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]; //要返回的数据</div><div class="line">echo &amp;callback.&apos;(&apos;.json_encode($data).&apos;)&apos;;//输出</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<p> 最终那个页面的输出结果是：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dosomething([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]);</div></pre></td></tr></table></figure>
+<p> JSONP的缺点是无法发送POST请求</p>
 </li>
-</ol>
-<p>因为是当做一个js文件来引入的，所以<a href="http://example.com/data.php" target="_blank" rel="external">http://example.com/data.php</a> 返回的必须是一个能执行的js文件，所以这个页面的php代码可能是这样的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$callback = $_GET[&apos;callback&apos;]; //得到回调函数名</div><div class="line">$data = array[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]; //要返回的数据</div><div class="line">echo &amp;callback.&apos;(&apos;.json_encode($data).&apos;)&apos;;//输出</div><div class="line">?&gt;</div></pre></td></tr></table></figure></p>
-<p>最终那个页面的输出结果是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dosomething([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]);</div></pre></td></tr></table></figure></p>
-<p>JSONP的缺点是无法发送POST请求</p>
-<ol>
-<li>window.name:window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。比如：有一个页面a.html,它里面有这样的代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    window.name = &quot;我是a页面设置的值&quot;;</div><div class="line">    setTimeout(function()&#123;</div><div class="line">        window.location = &apos;b.html&apos;;</div><div class="line">   &#125;, 3000);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<li><p>window.name:window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。比如：有一个页面a.html,它里面有这样的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    window.name = &quot;我是a页面设置的值&quot;;</div><div class="line">    setTimeout(function()&#123;</div><div class="line">        window.location = &apos;b.html&apos;;</div><div class="line">   &#125;, 3000);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p> b.html的代码如下：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    alert(window.name)  //我是a页面设置的值</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p> 注意，window.name的值只能是字符串的形式，这个字符串的大小最大能允许2M左右甚至更大的一个容量，具体取决于不同的浏览器，但一般是够用了。比如有一个www.example.com/a.html页面,需要通过a.html页面里的js来获取另一个位于不同域上的页面www.cnblogs.com/data.html里的数据。data.html页面里的代码很简单，就是给当前的window.name设置一个a.html页面想要得到的数据值。data.html里的代码：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    window.name=&quot;我就是a.html想要的数据，所有可以转化成字符串的数据都可以在这里使用，比如可以传递一个json数据&quot;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p> 在a.html页面中使用一个隐藏的iframe来充当一个中间人角色，由iframe去获取data.html的数据，然后a.html再去得到iframe获取到的数据。<br> 充当中间人的iframe想要获取到data.html的通过window.name设置的数据，只需要把这个iframe的src设为www.cnblogs.com/data.html就行了。然后a.html想要得到iframe所获取到的数据，也就是想要得到iframe的window.name的值，还必须把这个iframe的src设成跟a.html页面同一个域才行，不然根据前面讲的同源策略，a.html是不能访问到iframe里的window.name属性的。这就是整个跨域过程。a.html的代码如下：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;!doctype html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">    &lt;title&gt;window.name跨域&lt;/title&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        function getData()&#123;</div><div class="line">            vra iframe = document.getElementById(&apos;proxy&apos;);</div><div class="line">            iframe.onload = function()&#123;</div><div class="line">                var data = iframe.contentWindow.name;//成功获取到数据</div><div class="line">            &#125;</div><div class="line">            iframe.src=&quot;b.html&quot;//这里的b.html为与a.html同源的随便一个页面。</div><div class="line">        &#125;</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;iframe id=&quot;proxy&quot; src=&quot;http://www.cnblogs.com/data.html&quot; style=&quot;display:none&quot; onload=&quot;getData()&quot;&gt;&lt;/iframe&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 </li>
-</ol>
-<p>b.html的代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    alert(window.name)  //我是a页面设置的值</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>注意，window.name的值只能是字符串的形式，这个字符串的大小最大能允许2M左右甚至更大的一个容量，具体取决于不同的浏览器，但一般是够用了。比如有一个www.example.com/a.html页面,需要通过a.html页面里的js来获取另一个位于不同域上的页面www.cnblogs.com/data.html里的数据。data.html页面里的代码很简单，就是给当前的window.name设置一个a.html页面想要得到的数据值。data.html里的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    window.name=&quot;我就是a.html想要的数据，所有可以转化成字符串的数据都可以在这里使用，比如可以传递一个json数据&quot;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<p>在a.html页面中使用一个隐藏的iframe来充当一个中间人角色，由iframe去获取data.html的数据，然后a.html再去得到iframe获取到的数据。<br>充当中间人的iframe想要获取到data.html的通过window.name设置的数据，只需要把这个iframe的src设为www.cnblogs.com/data.html就行了。然后a.html想要得到iframe所获取到的数据，也就是想要得到iframe的window.name的值，还必须把这个iframe的src设成跟a.html页面同一个域才行，不然根据前面讲的同源策略，a.html是不能访问到iframe里的window.name属性的。这就是整个跨域过程。a.html的代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;!doctype html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">    &lt;title&gt;window.name跨域&lt;/title&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        function getData()&#123;</div><div class="line">            vra iframe = document.getElementById(&apos;proxy&apos;);</div><div class="line">            iframe.onload = function()&#123;</div><div class="line">                var data = iframe.contentWindow.name;//成功获取到数据</div><div class="line">            &#125;</div><div class="line">            iframe.src=&quot;b.html&quot;//这里的b.html为与a.html同源的随便一个页面。</div><div class="line">        &#125;</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;iframe id=&quot;proxy&quot; src=&quot;http://www.cnblogs.com/data.html&quot; style=&quot;display:none&quot; onload=&quot;getData()&quot;&gt;&lt;/iframe&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
-<ol>
-<li>HTML5的window.postMessage(message, targetOrigin):可以使用它来向其它的window对象发送消息，无论这个window对象是属于同源或不同源。调用postMessage方法的window对象是指要接收消息的那一个window对象，该方法的第一个参数message为要发送的消息，类型只能为字符串；第二个参数targetOrigin用来限定接收消息的那个window对象所在的域，如果不想限定域，可以使用通配符*。需要接收消息的window对象，可以通过监听自身的message事件来获取传过来的消息，消息内容储存在该事件对象的data属性中。上面所说的向其他window对象发送消息，其实就是指一个页面有几个框架的那种情况，因为每一个框架都有一个window对象。举例说明：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    function onLoad()&#123;</div><div class="line">        var iframe = document.getElementById(&apos;iframe&apos;);</div><div class="line">        var win = iframe.contentWindow;</div><div class="line">        win.postMessage(&apos;我是来自页面a的消息&apos;, &apos;*&apos;);</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;iframe id=&quot;iframe&quot; src=&quot;http://www.test.com/b.html&quot;  onload=&quot;onLoad()&quot;&gt;&lt;/iframe&gt;</div></pre></td></tr></table></figure>
+<li><p>HTML5的window.postMessage(message, targetOrigin):可以使用它来向其它的window对象发送消息，无论这个window对象是属于同源或不同源。调用postMessage方法的window对象是指要接收消息的那一个window对象，该方法的第一个参数message为要发送的消息，类型只能为字符串；第二个参数targetOrigin用来限定接收消息的那个window对象所在的域，如果不想限定域，可以使用通配符*。需要接收消息的window对象，可以通过监听自身的message事件来获取传过来的消息，消息内容储存在该事件对象的data属性中。上面所说的向其他window对象发送消息，其实就是指一个页面有几个框架的那种情况，因为每一个框架都有一个window对象。举例说明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    function onLoad()&#123;</div><div class="line">        var iframe = document.getElementById(&apos;iframe&apos;);</div><div class="line">        var win = iframe.contentWindow;</div><div class="line">        win.postMessage(&apos;我是来自页面a的消息&apos;, &apos;*&apos;);</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;iframe id=&quot;iframe&quot; src=&quot;http://www.test.com/b.html&quot;  onload=&quot;onLoad()&quot;&gt;&lt;/iframe&gt;</div></pre></td></tr></table></figure>
+<p> b.html代码：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    window.onmessage = function(e)&#123;</div><div class="line">        e = e || window.event;</div><div class="line">        alert(e.data); //我是来自页面a的消息</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 </li>
-</ol>
-<p>b.html代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    window.onmessage = function(e)&#123;</div><div class="line">        e = e || window.event;</div><div class="line">        alert(e.data); //我是来自页面a的消息</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<ol>
-<li>CORS(Cross-Origin Resource Sharing,跨源资源共享)<br>使用自定义HTTP头部，让浏览器和服务器之间进行沟通。在发送请求时，附加一个额外的Origin头部，其中包括请求页面的源信息(协议、域名、端口),服务器根据这个头部，决定这个请求可不可以接受，如果可以接受，就在相应头的Access-Control-Allow-Origin投不中回发相同的源信息(如果是公共资源，可以发“ * ”)。浏览器会查看这个头部是否包含Origin的值，如果不包含则驳回，如果包含就处理相应，得到数据。</li>
+<li><p>CORS(Cross-Origin Resource Sharing,跨源资源共享)<br>使用自定义HTTP头部，让浏览器和服务器之间进行沟通。在发送请求时，附加一个额外的Origin头部，其中包括请求页面的源信息(协议、域名、端口),服务器根据这个头部，决定这个请求可不可以接受，如果可以接受，就在相应头的Access-Control-Allow-Origin投不中回发相同的源信息(如果是公共资源，可以发“ * ”)。浏览器会查看这个头部是否包含Origin的值，如果不包含则驳回，如果包含就处理相应，得到数据。</p>
+</li>
 </ol>
 
       
@@ -255,7 +256,7 @@ aaa里的一个网页（a.html）引入了bbb 里的一个网页（b.html），�
         <p><span>本文标题:</span><a href="/2017/03/04/跨域资源访问/">跨域资源访问</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 小蕾蕾 的个人博客">小蕾蕾</a></p>
         <p><span>发布时间:</span>2017年03月04日 - 13时39分</p>
-        <p><span>最后更新:</span>2017年03月04日 - 14时16分</p>
+        <p><span>最后更新:</span>2017年03月04日 - 14时20分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/03/04/跨域资源访问/" title="跨域资源访问">http://yoursite.com/2017/03/04/跨域资源访问/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/03/04/跨域资源访问/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
