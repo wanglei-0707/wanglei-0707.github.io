@@ -173,6 +173,88 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-浏览器缓存" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/20/浏览器缓存/" class="article-date">
+      <time datetime="2017-03-20T02:29:15.000Z" itemprop="datePublished">2017-03-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/20/浏览器缓存/">浏览器缓存</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="http缓存"><a href="#http缓存" class="headerlink" title="http缓存"></a>http缓存</h2><h3 id="Cache-Control-请求头部"><a href="#Cache-Control-请求头部" class="headerlink" title="Cache-Control(请求头部):"></a>Cache-Control(请求头部):</h3><ol>
+<li>max-age(单位为s): 指定缓存的最大有效时间，指定的是时间段，而不是时间点。当浏览器向服务器发送请求后，在max-age这段时间里浏览器不会再向服务器发送请求了。即使服务器上的资源发生了变化，浏览器也不会得到通知。max-age会覆盖掉Expires。</li>
+<li>s-maxage(单位为s)：同max-age，但是max-age针对普通缓存，s-maxage用于代理缓存，比如CDN缓存。s-maxage会覆盖max-age和Expires。</li>
+<li>no-cache：指定不缓存响应，表明资源不进行缓存。但是设置了no-cache之后并不代表浏览器不缓存，而是在缓存前要向服务器确认资源是否被更改。</li>
+<li>no-store：指示缓存不存储此次请求的响应部分，与no-cache比较来说，一个是不用缓存，一个是不存储缓存</li>
+</ol>
+<h3 id="Expires-响应头部"><a href="#Expires-响应头部" class="headerlink" title="Expires(响应头部)"></a>Expires(响应头部)</h3><p>指定缓存过期时间，是服务器端具体的时间点，Expires=请求时间+max-age， 需要结合Last-modified使用。属于服务器响应消息头字段，在响应http请求时告诉浏览器在过期时间前浏览器可以直接从浏览器缓存存取数据。</p>
+<h3 id="Last-modified-响应头部-If-Modified-Since-请求头部"><a href="#Last-modified-响应头部-If-Modified-Since-请求头部" class="headerlink" title="Last-modified(响应头部) If-Modified-Since(请求头部)"></a>Last-modified(响应头部) If-Modified-Since(请求头部)</h3><p>服务器端文件的最后修改时间，和Cache-Control结合使用。服务器端响应一个http请求时，响应头部会包含Last-modified字段，表明服务器端文件的最后修改时间，浏览器再次请求时，会将请求头部的If-Modified-Since字段设置为上一次响应传回的Last-modified中的值，并传给服务器，询问这个时间点之后资源是否被修改过，如果没有修改过，服务器端返回304状态码，浏览器使用缓存，如果修改过，则再次去服务器端请求资源，服务器响应返回码为200.</p>
+<h3 id="ETag-响应头部-If-None-Match-If-Match-请求头部"><a href="#ETag-响应头部-If-None-Match-If-Match-请求头部" class="headerlink" title="ETag(响应头部) If-None-Match/If-Match(请求头部)"></a>ETag(响应头部) If-None-Match/If-Match(请求头部)</h3><p>根据实体内容生成一段hash字符串，标识资源的状态，由服务端产生。浏览器向服务器端发送一个http请求时，服务器会生成一个ETag，表示资源的状态，包含在响应头部ETag字段返回给浏览器，浏览器再次请求这个页面时，请求头部会包含这个在If-None-Match或者If-Match字段中包含这个ETag，服务器端收到请求后会检查发送过来的ETag和计算出来的ETag是否匹配，如果不匹配，返回200，匹配，返回304。</p>
+<p>ETag解决了Last-modified无法解决的问题：</p>
+<ol>
+<li>一些文件修改时间改变了，但是内容没有改变，此时使用Last-modified会认为资源更新了，而ETag不会</li>
+<li>Last-modified只能精确到秒，如果资源修改非常频繁，在秒一下的时间进行修改，Last-modified无法正确响应。</li>
+<li>某些服务器不能精确的得到文件的最后修改时间，这样就无法通过最后修改时间判断资源是否更新。</li>
+</ol>
+<p>!(缓存流程图)[<a href="http://cdn.alloyteam.com/wp-content/uploads/2016/03/图片61.png" target="_blank" rel="external">http://cdn.alloyteam.com/wp-content/uploads/2016/03/图片61.png</a>]</p>
+<h2 id="禁用缓存"><a href="#禁用缓存" class="headerlink" title="禁用缓存"></a>禁用缓存</h2><ol>
+<li><p>在meta标签中设置，HTTP-EQUIV属性为名称/值对提供了名称，CONTENT提供了值。使用带有 http-equiv 属性的 <meta> 标签时，服务器将把名称/值对添加到发送给浏览器的响应头部。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;META HTTP-EQUIV=&quot;pragma&quot; CONTENT=&quot;no-cache&quot;&gt;</div><div class="line">&lt;META HTTP-EQUIV=&quot;Cache-Control&quot; CONTENT=&quot;no-cache, must-revalidate&quot;&gt;</div><div class="line">&lt;META HTTP-EQUIV=&quot;expires&quot; CONTENT=&quot;0&quot;&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>动态设置setRequestHeader</p>
+</li>
+<li>请求端设置If-Modified-Since为已经过期的某个时间。</li>
+<li>服务器端设置Expires为某个过期时间。</li>
+<li>url后加时间戳</li>
+<li>url后加随机数</li>
+</ol>
+<h2 id="localStorage-sessionStorage"><a href="#localStorage-sessionStorage" class="headerlink" title="localStorage/sessionStorage"></a>localStorage/sessionStorage</h2><h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>参考资料：<br><a href="http://web.jobbole.com/85243/" target="_blank" rel="external">浅谈Web缓存</a></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-两列布局" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
