@@ -173,6 +173,72 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-js中的函数声明和函数表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/15/js中的函数声明和函数表达式/" class="article-date">
+      <time datetime="2017-04-15T02:32:33.000Z" itemprop="datePublished">2017-04-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/15/js中的函数声明和函数表达式/">js中的函数声明和函数表达式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>4月12号参加了网易杭研院的现场面试，一面刚开始，面试官就给了我一段代码，让我写出运行结果。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">function Foo()&#123;</div><div class="line">    getName = function()&#123;</div><div class="line">        console.log(1);</div><div class="line">    &#125;;</div><div class="line">    return this;</div><div class="line">&#125;</div><div class="line">Foo.getName = function()&#123;</div><div class="line">    console.log(2);</div><div class="line">&#125;;</div><div class="line">Foo.prototype.getName = function()&#123;</div><div class="line">    console.log(3);</div><div class="line">&#125;;</div><div class="line">var getName = function()&#123;</div><div class="line">    console.log(4);</div><div class="line">&#125;;</div><div class="line">function getName()&#123;</div><div class="line">    console.log(5);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Foo.getName();</div><div class="line">getName();</div><div class="line">Foo().getName();</div><div class="line">getName();</div><div class="line">new Foo.getName();</div></pre></td></tr></table></figure></p>
+<p>这段代码其实我之前做过一次，记得当时做完以后惨不忍睹，对比了正确答案有一种“咦，这是什么鬼！！！”这种感觉。但是当我在面试时再次看到这段代码的时候，并没有为遇到熟题而内心窃喜，因为我不记得正确答案啦！！！其实还是说明当时并没有真正的理解。然后考场上我就静下心来仔细分析，还是花了好几分钟才写出答案的，面试官还让我给他讲为什么会得出这样的结果。等我面试结束回到实验室只有，把代码跑了一遍，嗯，除了最后一个错了，前面四个都对了。我当时的答案是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Foo.getName(); // 2</div><div class="line">getName(); // 4</div><div class="line">Foo().getName(); // 1</div><div class="line">getName(); // 1</div><div class="line">new Foo.getName(); // 3 正确答案是2</div></pre></td></tr></table></figure></p>
+<p>首先<figure class="highlight plain"><figcaption><span>**2**。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">然后是```getName(); ```，这一行让我很犹豫，我当时不确定是4还是5，这个犹豫的根源其实就是对函数声明的提升理解的还是不透彻，以前就只知道函数声明会被提升，函数表达式不会被提升，但是面试官为我为什么函数表达式不会被提升，我就不知道怎么回答了，确实之前没有仔细思考过这个问题。回来之后我查了些资料，算是彻底搞明白了。</div><div class="line"></div><div class="line">使用函数声明的方式定义的函数会像变量声明一样在编译器进行解析的时候被提升到所在作用域的最顶端，不只是一个函数名，而是整个函数(包括函数体)，所以即使在函数声明之前使用该函数也没有问题</div></pre></td></tr></table></figure></p>
+<p>console.log(getName); // function getName(){console.log(2);}<br>function getName(){<br>    console.log(2);<br>}</p>
+<p>// 相当于</p>
+<p>function getName(){<br>    console.log(2);<br>}<br>console.log(getName); // function getName(){console.log(2);}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">而使用函数表达式定义的函数其实也类似于变量提升，但是它只是把函数的函数名(不包括初始化)提升到所在作用域的最顶端，在函数表达式之前打印这个函数名的话会输出undefined，只有当代码执行到函数表达式所在行的时候才对函数名进行赋值，这个函数才可用。</div></pre></td></tr></table></figure></p>
+<p>console.log(getName); // undefined<br>var getName = function(){<br>    console.log(1);<br>};</p>
+<p>// 相当于</p>
+<p>var getName;<br>console.log(getName); // undefined<br>getName = function(){<br>    console.log(1);<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">而当函数声明和变量声明同时存在的时候，函数声明总是会被提升到变量声明的前面，即使函数声明是写在变量声明之后。因此当在前面使用getName时，得到的是函数声明中的函数，但是在函数声明和函数表达式之后得到的就是函数表达式的函数，因为函数表达式将函数声明的函数覆盖了。</div></pre></td></tr></table></figure></p>
+<p>console.log(getName); // function getName(){console.log(2);}<br>var getName = function(){<br>    console.log(1);<br>};<br>function getName(){<br>    console.log(2);<br>}<br>console.log(getName); // function getName(){console.log(1);}</p>
+<p>// 相当于</p>
+<p>function getName(){<br>    console.log(2);<br>}<br>var getName;<br>console.log(getName); // function getName(){console.log(2);}<br>var getName = function(){<br>    console.log(1);<br>};<br>console.log(getName); // function getName(){console.log(1);}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">搞清楚了函数声明和函数表达式的问题，回到最初的那段代码，第一次执行```getName();```时，实际执行的是函数表达式中的函数，因此打印4.</div><div class="line"></div><div class="line">然后是```Foo().getName();```，首先执行Foo函数，在Foo函数中，注意，对getName的赋值前面没有var关键字，所以是对全局getName进行赋值，因此会覆盖上面函数表达式定义的函数体。而Foo最后返回了this，也就是全局对象window，接下来就是执行window.getName，也就是刚刚在Foo函数体内赋值的getName函数，打印结果是1.</div><div class="line"></div><div class="line">然后```getName();```，和上一个一样，打印1.</div><div class="line"></div><div class="line">最后```new Foo.getName();```，这个的关键地方就是搞清楚new操作符，点操作符和圆括号的优先级。点操作符和圆括号的优先级高于new操作符。因此会先执行Foo.getName()，执行Foo的静态方法，打印2，然后再new一个Foo的实例。我当时面试的时候就是以为new的优先级高，先new一个Foo的实例，然后执行原型方法，所以是错的。对了，通过这个我还知道了原来当new一个实例时不加圆括号也是可以的，就像这样```var foo = new Foo;</div></pre></td></tr></table></figure></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-form表单无刷新提交" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
