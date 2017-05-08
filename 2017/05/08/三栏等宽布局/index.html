@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>js中的函数声明和函数表达式 | Hexo</title>
+  <title>三栏等宽布局 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="4月12号参加了网易杭研院的现场面试，一面刚开始，面试官就给了我一段代码，让我写出运行结果。代码如下：123456789101112131415161718192021222324function Foo()&amp;#123;    getName = function()&amp;#123;        console.log(1);    &amp;#125;;    return this;&amp;#125;Foo.">
+  <meta name="description" content="有时候需要实现一行平均分为三个部分，常见的就是导航条。总结如下几种方法实现三栏等宽布局：
+宽度33.33% + float:left1234567891011121314151617&amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;111&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;222&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;333&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;ul&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js中的函数声明和函数表达式">
-<meta property="og:url" content="http://yoursite.com/2017/04/15/js中的函数声明和函数表达式/index.html">
+<meta property="og:title" content="三栏等宽布局">
+<meta property="og:url" content="http://yoursite.com/2017/05/08/三栏等宽布局/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="4月12号参加了网易杭研院的现场面试，一面刚开始，面试官就给了我一段代码，让我写出运行结果。代码如下：123456789101112131415161718192021222324function Foo()&amp;#123;    getName = function()&amp;#123;        console.log(1);    &amp;#125;;    return this;&amp;#125;Foo.">
-<meta property="og:updated_time" content="2017-04-15T03:44:22.370Z">
+<meta property="og:description" content="有时候需要实现一行平均分为三个部分，常见的就是导航条。总结如下几种方法实现三栏等宽布局：
+宽度33.33% + float:left1234567891011121314151617&amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;111&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;222&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;333&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;ul&amp;#">
+<meta property="og:updated_time" content="2017-05-08T06:59:33.377Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js中的函数声明和函数表达式">
-<meta name="twitter:description" content="4月12号参加了网易杭研院的现场面试，一面刚开始，面试官就给了我一段代码，让我写出运行结果。代码如下：123456789101112131415161718192021222324function Foo()&amp;#123;    getName = function()&amp;#123;        console.log(1);    &amp;#125;;    return this;&amp;#125;Foo.">
+<meta name="twitter:title" content="三栏等宽布局">
+<meta name="twitter:description" content="有时候需要实现一行平均分为三个部分，常见的就是导航条。总结如下几种方法实现三栏等宽布局：
+宽度33.33% + float:left1234567891011121314151617&amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;111&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;222&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;333&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;ul&amp;#">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -172,11 +175,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-js中的函数声明和函数表达式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-三栏等宽布局" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/15/js中的函数声明和函数表达式/" class="article-date">
-      <time datetime="2017-04-15T02:32:33.000Z" itemprop="datePublished">2017-04-15</time>
+      <a href="/2017/05/08/三栏等宽布局/" class="article-date">
+      <time datetime="2017-05-08T06:30:46.000Z" itemprop="datePublished">2017-05-08</time>
 </a>
     </div>
   
@@ -189,7 +192,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      js中的函数声明和函数表达式
+      三栏等宽布局
     </h1>
   
 
@@ -199,10 +202,6 @@
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-函数声明/">javascript 函数声明</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -210,17 +209,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>4月12号参加了网易杭研院的现场面试，一面刚开始，面试官就给了我一段代码，让我写出运行结果。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">function Foo()&#123;</div><div class="line">    getName = function()&#123;</div><div class="line">        console.log(1);</div><div class="line">    &#125;;</div><div class="line">    return this;</div><div class="line">&#125;</div><div class="line">Foo.getName = function()&#123;</div><div class="line">    console.log(2);</div><div class="line">&#125;;</div><div class="line">Foo.prototype.getName = function()&#123;</div><div class="line">    console.log(3);</div><div class="line">&#125;;</div><div class="line">var getName = function()&#123;</div><div class="line">    console.log(4);</div><div class="line">&#125;;</div><div class="line">function getName()&#123;</div><div class="line">    console.log(5);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Foo.getName();</div><div class="line">getName();</div><div class="line">Foo().getName();</div><div class="line">getName();</div><div class="line">new Foo.getName();</div></pre></td></tr></table></figure></p>
-<p>这段代码其实我之前做过一次，记得当时做完以后惨不忍睹，对比了正确答案有一种“咦，这是什么鬼！！！”这种感觉。但是当我在面试时再次看到这段代码的时候，并没有为遇到熟题而内心窃喜，因为我不记得正确答案啦！！！其实还是说明当时并没有真正的理解。然后考场上我就静下心来仔细分析，还是花了好几分钟才写出答案的，面试官还让我给他讲为什么会得出这样的结果。等我面试结束回到实验室只有，把代码跑了一遍，嗯，除了最后一个错了，前面四个都对了。我当时的答案是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Foo.getName(); // 2</div><div class="line">getName(); // 4</div><div class="line">Foo().getName(); // 1</div><div class="line">getName(); // 1</div><div class="line">new Foo.getName(); // 3 正确答案是2</div></pre></td></tr></table></figure></p>
-<p>首先 <code>Foo.getName();</code> 由于是通过Foo直接调用getName方法，则此时调用的是Foo的静态方法，也就是通过Foo.getName定义的方法，所以打印结果是2。</p>
-<p>然后是 <code>getName();</code> ，这一行让我很犹豫，我当时不确定是4还是5，这个犹豫的根源其实就是对函数声明的提升理解的还是不透彻，以前就只知道函数声明会被提升，函数表达式不会被提升，但是面试官为我为什么函数表达式不会被提升，我就不知道怎么回答了，确实之前没有仔细思考过这个问题。回来之后我查了些资料，算是彻底搞明白了。</p>
-<p>使用函数声明的方式定义的函数会像变量声明一样在编译器进行解析的时候被提升到所在作用域的最顶端，不只是一个函数名，而是整个函数(包括函数体)，所以即使在函数声明之前使用该函数也没有问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">console.log(getName); // function getName()&#123;console.log(2);&#125;</div><div class="line">function getName()&#123;</div><div class="line">    console.log(2);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 相当于</div><div class="line"></div><div class="line">function getName()&#123;</div><div class="line">    console.log(2);</div><div class="line">&#125;</div><div class="line">console.log(getName); // function getName()&#123;console.log(2);&#125;</div></pre></td></tr></table></figure></p>
-<p>而使用函数表达式定义的函数其实也类似于变量提升，但是它只是把函数的函数名(不包括初始化)提升到所在作用域的最顶端，在函数表达式之前打印这个函数名的话会输出undefined，只有当代码执行到函数表达式所在行的时候才对函数名进行赋值，这个函数才可用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">console.log(getName); // undefined</div><div class="line">var getName = function()&#123;</div><div class="line">    console.log(1);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 相当于</div><div class="line"></div><div class="line">var getName;</div><div class="line">console.log(getName); // undefined</div><div class="line">getName = function()&#123;</div><div class="line">    console.log(1);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>而当函数声明和变量声明同时存在的时候，函数声明总是会被提升到变量声明的前面，即使函数声明是写在变量声明之后。因此当在前面使用getName时，得到的是函数声明中的函数，但是在函数声明和函数表达式之后得到的就是函数表达式的函数，因为函数表达式将函数声明的函数覆盖了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">console.log(getName); // function getName()&#123;console.log(2);&#125;</div><div class="line">var getName = function()&#123;</div><div class="line">    console.log(1);</div><div class="line">&#125;;</div><div class="line">function getName()&#123;</div><div class="line">    console.log(2);</div><div class="line">&#125;</div><div class="line">console.log(getName); // function getName()&#123;console.log(1);&#125;</div><div class="line"></div><div class="line">// 相当于</div><div class="line"></div><div class="line">function getName()&#123;</div><div class="line">    console.log(2);</div><div class="line">&#125;</div><div class="line">var getName;</div><div class="line">console.log(getName); // function getName()&#123;console.log(2);&#125;</div><div class="line">var getName = function()&#123;</div><div class="line">    console.log(1);</div><div class="line">&#125;;</div><div class="line">console.log(getName); // function getName()&#123;console.log(1);&#125;</div></pre></td></tr></table></figure></p>
-<p>搞清楚了函数声明和函数表达式的问题，回到最初的那段代码，第一次执行<code>getName();</code>时，实际执行的是函数表达式中的函数，因此打印4.</p>
-<p>然后是<code>Foo().getName();</code>，首先执行Foo函数，在Foo函数中，注意，对getName的赋值前面没有var关键字，所以是对全局getName进行赋值，因此会覆盖上面函数表达式定义的函数体。而Foo最后返回了this，也就是全局对象window，接下来就是执行window.getName，也就是刚刚在Foo函数体内赋值的getName函数，打印结果是1.</p>
-<p>然后<code>getName();</code>，和上一个一样，打印1.</p>
-<p>最后<code>new Foo.getName();</code>，这个的关键地方就是搞清楚new操作符，点操作符和圆括号的优先级。点操作符和圆括号的优先级高于new操作符。因此会先执行Foo.getName()，执行Foo的静态方法，打印2，然后再new一个Foo的实例。我当时面试的时候就是以为new的优先级高，先new一个Foo的实例，然后执行原型方法，所以是错的。对了，通过这个我还知道了原来当new一个实例时不加圆括号也是可以的，就像这样<code>var foo = new Foo;</code></p>
+        <p>有时候需要实现一行平均分为三个部分，常见的就是导航条。总结如下几种方法实现三栏等宽布局：</p>
+<h3 id="宽度33-33-float-left"><a href="#宽度33-33-float-left" class="headerlink" title="宽度33.33% + float:left"></a>宽度33.33% + float:left</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li&gt;111&lt;/li&gt;</div><div class="line">    &lt;li&gt;222&lt;/li&gt;</div><div class="line">    &lt;li&gt;333&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">    overflow: hidden;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    width: 33.33%;</div><div class="line">    float: left;</div><div class="line">    background: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="宽度33-33-display-inline-block-消除空隙"><a href="#宽度33-33-display-inline-block-消除空隙" class="headerlink" title="宽度33.33% + display:inline-block + 消除空隙"></a>宽度33.33% + display:inline-block + 消除空隙</h3><p>使用display：inline-block，每个li之间会有间隙，这是由于浏览器把li之间的空白符渲染成空格的原因。可以将和html结构中li之间的空格删除，但是这种方式对代码的可读性不友好，还可以使用负边距或者将父元素的字体大小设置为0这两种方法解决。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">/* 负边距的方法 */</div><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    display: inline-block;</div><div class="line">    width: 33.33%;</div><div class="line">    margin-right: -8px; /* 根据具体情况调整负边距的大小 */</div><div class="line">    background: red;</div><div class="line">&#125;</div><div class="line">/* 父元素字体大小设置为0的方法 */</div><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">    font-size: 0;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    display: inline-block;</div><div class="line">    width: 33.33%;</div><div class="line">    background: red;</div><div class="line">    font-size: 16px; /* 在子元素上重新设置字体大小 */</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">    display: flex;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    flex: 1;</div><div class="line">    background: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="li设置为display-table-cell，宽度设置为一个大于父元素宽度三分之一的数"><a href="#li设置为display-table-cell，宽度设置为一个大于父元素宽度三分之一的数" class="headerlink" title="li设置为display:table-cell，宽度设置为一个大于父元素宽度三分之一的数"></a>li设置为display:table-cell，宽度设置为一个大于父元素宽度三分之一的数</h3><p>设置为display:table-cell的元素会作为一个表格单元格显示，当宽度过大时，会自适应<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    display: table-cell;</div><div class="line">    width: 300px;</div><div class="line">    background: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
       
@@ -230,13 +223,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/04/15/js中的函数声明和函数表达式/">js中的函数声明和函数表达式</a></p>
+        <p><span>本文标题:</span><a href="/2017/05/08/三栏等宽布局/">三栏等宽布局</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 小蕾蕾 的个人博客">小蕾蕾</a></p>
-        <p><span>发布时间:</span>2017年04月15日 - 10时32分</p>
-        <p><span>最后更新:</span>2017年04月15日 - 11时44分</p>
+        <p><span>发布时间:</span>2017年05月08日 - 14时30分</p>
+        <p><span>最后更新:</span>2017年05月08日 - 14时59分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/04/15/js中的函数声明和函数表达式/" title="js中的函数声明和函数表达式">http://yoursite.com/2017/04/15/js中的函数声明和函数表达式/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/04/15/js中的函数声明和函数表达式/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/05/08/三栏等宽布局/" title="三栏等宽布局">http://yoursite.com/2017/05/08/三栏等宽布局/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/05/08/三栏等宽布局/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -249,18 +242,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/04/26/React-s-diff-algorithm/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          React&#39;s diff algorithm
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/04/03/form表单无刷新提交/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">form表单无刷新提交</div>
+    <a href="/2017/05/08/三栏布局/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">三栏布局</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -271,7 +255,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#宽度33-33-float-left"><span class="toc-number">1.</span> <span class="toc-text">宽度33.33% + float:left</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#宽度33-33-display-inline-block-消除空隙"><span class="toc-number">2.</span> <span class="toc-text">宽度33.33% + display:inline-block + 消除空隙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex布局"><span class="toc-number">3.</span> <span class="toc-text">flex布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#li设置为display-table-cell，宽度设置为一个大于父元素宽度三分之一的数"><span class="toc-number">4.</span> <span class="toc-text">li设置为display:table-cell，宽度设置为一个大于父元素宽度三分之一的数</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -319,7 +303,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/04/15/js中的函数声明和函数表达式/" data-title="js中的函数声明和函数表达式" data-url="http://yoursite.com/2017/04/15/js中的函数声明和函数表达式/"></div>
+    <div class="ds-thread" data-thread-key="2017/05/08/三栏等宽布局/" data-title="三栏等宽布局" data-url="http://yoursite.com/2017/05/08/三栏等宽布局/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -342,13 +326,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/04/26/React-s-diff-algorithm/" title="上一篇: React&#39;s diff algorithm">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/04/03/form表单无刷新提交/" title="下一篇: form表单无刷新提交">
+            <a href="/2017/05/08/三栏布局/" title="下一篇: 三栏布局">
                 <i class="fa fa-angle-right"></i>
             </a>
         
