@@ -119,7 +119,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css-margin/" style="font-size: 10px;">css margin</a> <a href="/tags/javascript-函数声明/" style="font-size: 10px;">javascript 函数声明</a> <a href="/tags/js-跨域/" style="font-size: 10px;">js 跨域</a>
+                        <a href="/tags/React-虚拟DOM/" style="font-size: 10px;">React 虚拟DOM</a> <a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/css-margin/" style="font-size: 10px;">css margin</a> <a href="/tags/javascript-函数声明/" style="font-size: 10px;">javascript 函数声明</a> <a href="/tags/js-跨域/" style="font-size: 10px;">js 跨域</a>
                     </div>
                 </section>
                 
@@ -172,6 +172,139 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-三栏布局" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/08/三栏布局/" class="article-date">
+      <time datetime="2017-05-08T06:14:00.000Z" itemprop="datePublished">2017-05-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/08/三栏布局/">三栏布局</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="三栏布局方案"><a href="#三栏布局方案" class="headerlink" title="三栏布局方案"></a>三栏布局方案</h2><p>左边和右边固定宽度，中间自适应</p>
+<h3 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h3><p>中间的div放在最前面最先渲染，三栏全部左浮动，包裹div设置左右外边距为左右两栏的宽度，中间栏宽度100%， 左右两栏通过负值的左外边距和相对定位调整到正确位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">    &lt;div class=&quot;middle&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">.container&#123;</div><div class="line">    margin: 0 200px 0 100px; 父元素设置左右外边距留出左右两栏的位置</div><div class="line">&#125;</div><div class="line">.middle&#123;</div><div class="line">    float: left; 左浮动</div><div class="line">    width: 100%; 中间栏宽度设为100%，实现自适应</div><div class="line">    height: 200px;</div><div class="line">    background: red;</div><div class="line">&#125;</div><div class="line">.left&#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 200px;</div><div class="line">    background: green;</div><div class="line">    float: left;  左栏左浮动</div><div class="line">    margin-left: -100%; 因中间栏宽度100%，所以左栏会被挤到下一行，因此设置负的左外边距为父元素的宽度即-100%，置于中间栏左边</div><div class="line">    position: relative; 左栏会覆盖中间栏的前面部分，因此设置相对定位，向左移动自身宽度的大小</div><div class="line">    left: -100px;</div><div class="line">&#125;</div><div class="line">.right&#123;</div><div class="line">    width: 200px;</div><div class="line">    height:200px;</div><div class="line">    background: blue;</div><div class="line">    float: left; 右栏左浮动</div><div class="line">    margin-left: -200px; 因中间栏宽度100%，所以右栏会被挤到下一行，因此设置负的左外边距为自身宽度，置于中间栏右边</div><div class="line">    position: relative; 右栏会覆盖中间栏的后面部分，因此设置相对定位，向右移动自身宽度的大小</div><div class="line">    right: -200px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当页面宽度缩小至中间栏的宽度小于左侧栏的宽度时，左右两侧会被挤到下一行，布局错乱。</p>
+<h3 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h3><p>与圣杯布局大致相同，不同的地方是双飞翼布局不涉及到三栏的包裹div，但是中间div里面需要一个content div来存放内容，且设置外边距为左右两栏的宽度。左右两栏只需设置负值的左外边距，不需要再设置相对定位。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;middle&quot;&gt;</div><div class="line">    &lt;div class=&quot;content&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">.middle&#123;</div><div class="line">    float: left;</div><div class="line">    width: 100%; 宽度设为100%</div><div class="line">    height: 200px;</div><div class="line">&#125;</div><div class="line">.content&#123;</div><div class="line">    height: 200px;</div><div class="line">    margin: 0 200px 0 100px;</div><div class="line">    background: red;</div><div class="line">&#125;</div><div class="line">.left&#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 200px;</div><div class="line">    background: green;</div><div class="line">    float: left;</div><div class="line">    margin-left: -100%;</div><div class="line">&#125;</div><div class="line">.right&#123;</div><div class="line">    width: 200px;</div><div class="line">    height:200px;</div><div class="line">    background: blue;</div><div class="line">    float: left;</div><div class="line">    margin-left: -200px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="圣杯布局-VS-双飞翼布局"><a href="#圣杯布局-VS-双飞翼布局" class="headerlink" title="圣杯布局 VS 双飞翼布局"></a>圣杯布局 VS 双飞翼布局</h3><p>两者的实现思路其实本质是相同的，不同之处就是处理“左右两栏遮住中间栏”问题的解决方案，圣杯布局是通过三栏的父元素div设置左右margin留出左右两栏的位置，所以middle div设置宽度为100%之后是不包括父元素的margin部分的，因此左右两栏设置了负值的左外边距调整位置后其实是位于父元素的content区域的边缘，需要设置相对定位移动本身宽度的大小到左右两边的留白处。而双飞翼布局中是在middle div中添加了一个content div，通过设置这个content div的margin来留出左右两栏的位置。而这两处留白是在middle div内部，左右两栏通过负值的左外边距调整好位置之后恰好是处于留白处，因此不需要再通过相对定位调整位置。其实不设置content div标签，而设置middle div的padding来留出左右两栏的位置也是可以的，但是此时要设置middle div的<code>box-sizing: border-box;</code>。</p>
+<h3 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h3><p>左右两侧绝对定位，中间设置margin为左右两栏的宽度,三栏的标签位置可以任意调整<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div class=&quot;middle&quot;&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">.middle&#123;</div><div class="line">    margin: 0 200px 0 100px;</div><div class="line">    height: 200px;</div><div class="line">    background: red;</div><div class="line">&#125;</div><div class="line">.left&#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 200px;</div><div class="line">    background: green;</div><div class="line">    position: absolute;</div><div class="line">    left: 0;</div><div class="line">    top: 0;</div><div class="line">&#125;</div><div class="line">.right&#123;</div><div class="line">    width: 200px;</div><div class="line">    height:200px;</div><div class="line">    background: blue;</div><div class="line">    position: absolute;</div><div class="line">    right: 0;</div><div class="line">    top: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="左右浮动"><a href="#左右浮动" class="headerlink" title="左右浮动"></a>左右浮动</h3><p>左栏向左浮动，右栏向右浮动，中间栏设置margin左右外边距，中间栏必须放在最后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div class=&quot;middle&quot;&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">.middle&#123;</div><div class="line">    margin: 0 200px 0 100px;</div><div class="line">    height: 200px;</div><div class="line">    background: red;</div><div class="line">&#125;</div><div class="line">.left&#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 200px;</div><div class="line">    background: green;</div><div class="line">    float: left;</div><div class="line">&#125;</div><div class="line">.right&#123;</div><div class="line">    width: 200px;</div><div class="line">    height:200px;</div><div class="line">    background: blue;</div><div class="line">    float: right;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;middle&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">.container&#123;</div><div class="line">    display: flex;</div><div class="line">&#125;</div><div class="line">.middle&#123;</div><div class="line">    flex: 1;</div><div class="line">    height: 200px;</div><div class="line">    background: red;</div><div class="line">&#125;</div><div class="line">.left&#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 200px;</div><div class="line">    background: green;</div><div class="line">&#125;</div><div class="line">.right&#123;</div><div class="line">    width: 200px;</div><div class="line">    height:200px;</div><div class="line">    background: blue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>参考:<br><a href="http://www.mamicode.com/info-detail-1080768.html" target="_blank" rel="external">圣杯布局和双飞翼布局的理解和区别</a><br><a href="http://www.jianshu.com/p/f9bcddb0e8b4" target="_blank" rel="external">圣杯布局和双飞翼布局（前端面试必看）</a><br><a href="http://www.zhangxinxu.com/wordpress/2009/11/我熟知的三种三栏网页宽度自适应布局方法/" target="_blank" rel="external">我熟知的三种三栏网页宽度自适应布局方法</a></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-React-s-diff-algorithm" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/26/React-s-diff-algorithm/" class="article-date">
+      <time datetime="2017-04-26T06:43:12.000Z" itemprop="datePublished">2017-04-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/26/React-s-diff-algorithm/">React&#39;s diff algorithm</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="level-by-level"><a href="#level-by-level" class="headerlink" title="level by level"></a>level by level</h2><p>在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。</p>
+<p>React尝试一层一层地调解，这样彻底减少了复杂性并且不会造成很大损失，因为在web应用中很少有一个组件被移动到树的不同层次上的情况，而通常的情况是子组件之间横向移动。<br><img src="../img/diff1.png" alt=""></p>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>假如我们有一个组件，通过迭代渲染5个组件，下一步是将一个新的组件插入到这个列表中。在只有这些信息的情况下很难知道如何在两个组件列表之间映射。</p>
+<p>默认地，React会把前一个列表的第一个组件和下一个列表的第一个组件联系起来，以此类推，你可以提供一个key属性用来帮助React实现映射。事实上，在子组件之间通常很容易找出唯一的键。<br><img src="../img/diff2.png" alt=""></p>
+<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><p>一个React App通常由很多的自定义组件构成，最终演变成一个大部分由div构成的组件树。diff算法将这个额外的信息考虑在内是因为React将只匹配具有相同class的组件。</p>
+<p>举个例子，如果一个<header>被<exampleblock>替换，React将移出header并且创建一个example block。我们不需要花费宝贵的时间去匹配两个不可能有任何相似之处的组件。<br><img src="../img/diff3.png" alt=""></exampleblock></header></p>
+<h2 id="Event-Delegation"><a href="#Event-Delegation" class="headerlink" title="Event Delegation"></a>Event Delegation</h2><p>将事件监听绑定在DOM节点上会相当慢并且十分消耗内存，React实现了事件委托这个流行的技术来取代之。React进一步重新实现了兼容W3C事件系统。这意味着IE8事件处理bug已经是过去式，所有的事件名称在所有浏览器中保持一致。</p>
+<p>让我来解释React是怎么实现的。一个单一的事件监听器被绑定到文档的根元素上。当事件被触发，浏览器会给我们目标DOM节点，为了在DOM层次之间传播事件，React不在虚拟DOM层次间迭代。</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-虚拟DOM/">React 虚拟DOM</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-js中的函数声明和函数表达式" class="article article-type-post" itemscope itemprop="blogPost">
   
