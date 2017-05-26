@@ -3,30 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>React&#39;s diff algorithm | Hexo</title>
+  <title>React&#39;s diff algorithm | 小蕾蕾的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="level by level在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。
-React尝试一层一层地调解，这样彻底减少了复杂性并且不会造成很大损失，因为在web应用中很少有一个组件被移动到树的不同层次上的情况，而通常的情况是子组件之间横向移动。
-List假如我们有一">
+  <meta name="description" content="level by level在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。 React尝试一层一层地调解，这样彻底减少了复杂性并且不会造成很大损失，因为在web应用中很少有一个组件被移动到树的不同层次上的情况，而通常的情况是子组件之间横向移动。 List假如我们有一">
+<meta name="keywords" content="React 虚拟DOM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React's diff algorithm">
-<meta property="og:url" content="http://yoursite.com/2017/04/26/React-s-diff-algorithm/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="level by level在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。
-React尝试一层一层地调解，这样彻底减少了复杂性并且不会造成很大损失，因为在web应用中很少有一个组件被移动到树的不同层次上的情况，而通常的情况是子组件之间横向移动。
-List假如我们有一">
-<meta property="og:image" content="http://yoursite.com/../img/diff1.png">
-<meta property="og:image" content="http://yoursite.com/../img/diff2.png">
-<meta property="og:image" content="http://yoursite.com/../img/diff3.png">
-<meta property="og:updated_time" content="2017-04-27T05:09:14.982Z">
+<meta property="og:title" content="React&#39;s diff algorithm">
+<meta property="og:url" content="http://wanglei-0707.github.io/2017/04/26/React-s-diff-algorithm/index.html">
+<meta property="og:site_name" content="小蕾蕾的个人博客">
+<meta property="og:description" content="level by level在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。 React尝试一层一层地调解，这样彻底减少了复杂性并且不会造成很大损失，因为在web应用中很少有一个组件被移动到树的不同层次上的情况，而通常的情况是子组件之间横向移动。 List假如我们有一">
+<meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff1.png">
+<meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff2.png">
+<meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff3.png">
+<meta property="og:updated_time" content="2017-04-27T05:09:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React's diff algorithm">
-<meta name="twitter:description" content="level by level在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。
-React尝试一层一层地调解，这样彻底减少了复杂性并且不会造成很大损失，因为在web应用中很少有一个组件被移动到树的不同层次上的情况，而通常的情况是子组件之间横向移动。
-List假如我们有一">
-<meta name="twitter:image" content="http://yoursite.com/../img/diff1.png">
+<meta name="twitter:title" content="React&#39;s diff algorithm">
+<meta name="twitter:description" content="level by level在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。 React尝试一层一层地调解，这样彻底减少了复杂性并且不会造成很大损失，因为在web应用中很少有一个组件被移动到树的不同层次上的情况，而通常的情况是子组件之间横向移动。 List假如我们有一">
+<meta name="twitter:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff1.png">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="小蕾蕾的个人博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -242,8 +237,8 @@ List假如我们有一">
         <p><span>发布时间:</span>2017年04月26日 - 14时43分</p>
         <p><span>最后更新:</span>2017年04月27日 - 13时09分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/04/26/React-s-diff-algorithm/" title="React&#39;s diff algorithm">http://yoursite.com/2017/04/26/React-s-diff-algorithm/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/04/26/React-s-diff-algorithm/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/26/React-s-diff-algorithm/" title="React&#39;s diff algorithm">http://wanglei-0707.github.io/2017/04/26/React-s-diff-algorithm/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wanglei-0707.github.io/2017/04/26/React-s-diff-algorithm/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -326,7 +321,7 @@ List假如我们有一">
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/04/26/React-s-diff-algorithm/" data-title="React&#39;s diff algorithm" data-url="http://yoursite.com/2017/04/26/React-s-diff-algorithm/"></div>
+    <div class="ds-thread" data-thread-key="2017/04/26/React-s-diff-algorithm/" data-title="React&#39;s diff algorithm" data-url="http://wanglei-0707.github.io/2017/04/26/React-s-diff-algorithm/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">

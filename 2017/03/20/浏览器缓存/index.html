@@ -3,26 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>浏览器缓存 | Hexo</title>
+  <title>浏览器缓存 | 小蕾蕾的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="http缓存Cache-Control(请求头部):
-max-age(单位为s): 指定缓存的最大有效时间，指定的是时间段，而不是时间点。当浏览器向服务器发送请求后，在max-age这段时间里浏览器不会再向服务器发送请求了。即使服务器上的资源发生了变化，浏览器也不会得到通知。max-age会覆盖掉Expires。
-s-maxage(单位为s)：同max-age，但是max-age针对普通缓存，s-">
+  <meta name="description" content="http缓存Cache-Control(请求头部): max-age(单位为s): 指定缓存的最大有效时间，指定的是时间段，而不是时间点。当浏览器向服务器发送请求后，在max-age这段时间里浏览器不会再向服务器发送请求了。即使服务器上的资源发生了变化，浏览器也不会得到通知。max-age会覆盖掉Expires。 s-maxage(单位为s)：同max-age，但是max-age针对普通缓存，s-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器缓存">
-<meta property="og:url" content="http://yoursite.com/2017/03/20/浏览器缓存/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="http缓存Cache-Control(请求头部):
-max-age(单位为s): 指定缓存的最大有效时间，指定的是时间段，而不是时间点。当浏览器向服务器发送请求后，在max-age这段时间里浏览器不会再向服务器发送请求了。即使服务器上的资源发生了变化，浏览器也不会得到通知。max-age会覆盖掉Expires。
-s-maxage(单位为s)：同max-age，但是max-age针对普通缓存，s-">
-<meta property="og:updated_time" content="2017-04-15T03:46:33.124Z">
+<meta property="og:url" content="http://wanglei-0707.github.io/2017/03/20/浏览器缓存/index.html">
+<meta property="og:site_name" content="小蕾蕾的个人博客">
+<meta property="og:description" content="http缓存Cache-Control(请求头部): max-age(单位为s): 指定缓存的最大有效时间，指定的是时间段，而不是时间点。当浏览器向服务器发送请求后，在max-age这段时间里浏览器不会再向服务器发送请求了。即使服务器上的资源发生了变化，浏览器也不会得到通知。max-age会覆盖掉Expires。 s-maxage(单位为s)：同max-age，但是max-age针对普通缓存，s-">
+<meta property="og:updated_time" content="2017-04-15T03:46:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器缓存">
-<meta name="twitter:description" content="http缓存Cache-Control(请求头部):
-max-age(单位为s): 指定缓存的最大有效时间，指定的是时间段，而不是时间点。当浏览器向服务器发送请求后，在max-age这段时间里浏览器不会再向服务器发送请求了。即使服务器上的资源发生了变化，浏览器也不会得到通知。max-age会覆盖掉Expires。
-s-maxage(单位为s)：同max-age，但是max-age针对普通缓存，s-">
+<meta name="twitter:description" content="http缓存Cache-Control(请求头部): max-age(单位为s): 指定缓存的最大有效时间，指定的是时间段，而不是时间点。当浏览器向服务器发送请求后，在max-age这段时间里浏览器不会再向服务器发送请求了。即使服务器上的资源发生了变化，浏览器也不会得到通知。max-age会覆盖掉Expires。 s-maxage(单位为s)：同max-age，但是max-age针对普通缓存，s-">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="小蕾蕾的个人博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -230,7 +224,7 @@ s-maxage(单位为s)：同max-age，但是max-age针对普通缓存，s-">
 <p>!(缓存流程图)[<a href="http://cdn.alloyteam.com/wp-content/uploads/2016/03/图片61.png" target="_blank" rel="external">http://cdn.alloyteam.com/wp-content/uploads/2016/03/图片61.png</a>]</p>
 <h2 id="禁用缓存"><a href="#禁用缓存" class="headerlink" title="禁用缓存"></a>禁用缓存</h2><ol>
 <li><p>在meta标签中设置，HTTP-EQUIV属性为名称/值对提供了名称，CONTENT提供了值。使用带有 http-equiv 属性的 <meta> 标签时，服务器将把名称/值对添加到发送给浏览器的响应头部。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;META HTTP-EQUIV=&quot;pragma&quot; CONTENT=&quot;no-cache&quot;&gt;</div><div class="line">&lt;META HTTP-EQUIV=&quot;Cache-Control&quot; CONTENT=&quot;no-cache, must-revalidate&quot;&gt;</div><div class="line">&lt;META HTTP-EQUIV=&quot;expires&quot; CONTENT=&quot;0&quot;&gt;</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;META HTTP-EQUIV=&quot;pragma&quot; CONTENT=&quot;no-cache&quot;&gt;</div><div class="line">&lt;META HTTP-EQUIV=&quot;Cache-Control&quot; CONTENT=&quot;no-cache, must-revalidate&quot;&gt;</div><div class="line">&lt;META HTTP-EQUIV=&quot;expires&quot; CONTENT=&quot;0&quot;&gt;</div></pre></td></tr></table></figure>
 </li>
 <li><p>动态设置setRequestHeader</p>
 </li>
@@ -254,8 +248,8 @@ s-maxage(单位为s)：同max-age，但是max-age针对普通缓存，s-">
         <p><span>发布时间:</span>2017年03月20日 - 10时29分</p>
         <p><span>最后更新:</span>2017年04月15日 - 11时46分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/03/20/浏览器缓存/" title="浏览器缓存">http://yoursite.com/2017/03/20/浏览器缓存/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/03/20/浏览器缓存/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/20/浏览器缓存/" title="浏览器缓存">http://wanglei-0707.github.io/2017/03/20/浏览器缓存/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wanglei-0707.github.io/2017/03/20/浏览器缓存/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -338,7 +332,7 @@ s-maxage(单位为s)：同max-age，但是max-age针对普通缓存，s-">
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/03/20/浏览器缓存/" data-title="浏览器缓存" data-url="http://yoursite.com/2017/03/20/浏览器缓存/"></div>
+    <div class="ds-thread" data-thread-key="2017/03/20/浏览器缓存/" data-title="浏览器缓存" data-url="http://wanglei-0707.github.io/2017/03/20/浏览器缓存/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">

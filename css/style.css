@@ -139,8 +139,8 @@ body,
 body {
   font-family: "微软雅黑", 'Microsoft JhengHei', Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
   font-size: 16px;
-  background: #3f3f3f;
-  color: #999;
+  background: #fff;
+  color: #000;
   -webkit-overflow-scrolling: touch;
 }
 ::selection {
@@ -2567,7 +2567,7 @@ color
   color: #c8c8c8;
 }
 .article-title {
-  color: #999;
+  color: #ef6666;
   margin-left: 0px;
   font-weight: initial;
   line-height: 35px;
@@ -2583,7 +2583,7 @@ color
   transition: color 0.3s;
 }
 .article-title:hover {
-  color: #fff;
+  color: #f00;
 }
 #more {
   display: none;
@@ -2626,7 +2626,7 @@ color
   padding: 1px 3px;
   margin: 0 3px;
   color: #999;
-  background: #002b36;
+  background: #f7b3b3;
   border: 1px dashed #ccc;
   border-radius: 3px;
   font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
@@ -2681,7 +2681,7 @@ color
   margin-top: 10px;
   padding: 5px 15px;
   overflow-x: auto;
-  color: #657b83;
+  color: #000;
   font-size: 10px;
   border: 1px solid #ccc;
   text-shadow: 0 1px #444;
@@ -2722,7 +2722,7 @@ color
 }
 .article-entry code {
   color: #999;
-  background: #002b36;
+  background: #f7b3b3;
   padding: 1px 3px;
   border-radius: 5px;
 }
@@ -2835,7 +2835,7 @@ color
   padding: 10px;
   margin-left: 0em;
   margin: 20px 10px 10px 10px;
-  background: #3f3f3f;
+  background: #facfcf;
   border: 1px solid #080808;
   border-radius: 6px;
   overflow: auto;
@@ -2903,14 +2903,14 @@ color
   font-size: 0.93em;
   line-height: 1.6em;
   word-break: break-word;
-  background: #414141;
+  background: #f7b3b3;
   -webkit-box-shadow: 4px 4px 18px rgba(0,0,0,0.46);
   box-shadow: 4px 4px 18px rgba(0,0,0,0.46);
   border-radius: 6px;
 }
 .copyright span {
   margin-right: 1em;
-  color: #d5d5d5;
+  color: #1f1e1e;
   font-weight: bold;
 }
 .copyright a:hover {
@@ -3200,7 +3200,7 @@ color
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #002b36;
+  background: rgba(243,138,138,0.41);
   margin: 10px 0;
   padding: 10px 10px;
   overflow: auto;
@@ -3231,18 +3231,18 @@ color
   box-sizing: border-box;
 }
 .article-entry code {
-  background: #002b36;
+  background: #f7b3b3;
   padding: 0 0.3em;
   border: none;
 }
 .article-entry pre {
-  color: #fff;
+  color: #000;
 }
 .article-entry pre code {
   background: none;
   text-shadow: none;
   padding: 0;
-  color: #fff;
+  color: #000;
 }
 .article-entry p code {
   margin: 0 3px;
@@ -3254,7 +3254,7 @@ color
   border-radius: 5px;
   font-family: Consolas, "Courier New", Courier;
   text-shadow: none;
-  background-color: #002b36;
+  background-color: #f7b3b3;
   word-wrap: break-word;
   white-space: pre;
 }
@@ -3262,7 +3262,7 @@ color
   border: dashed 1px #000;
   padding: 8px 8px;
   border-radius: 5px;
-  background-color: #2f2e2e;
+  background-color: #f7b3b3;
   word-wrap: break-word;
   white-space: pre;
   margin: 2px;
@@ -3277,7 +3277,7 @@ color
   font: normal normal normal 14px/1 FontAwesome;
 }
 .article-entry p a:hover {
-  color: #fff;
+  color: #facfcf;
 }
 .article-entry h1 {
   font-size: 1.5em;
@@ -3290,7 +3290,7 @@ color
   padding-bottom: 5px;
   margin: 0.5em auto;
   font-weight: 700;
-  color: #999;
+  color: #000;
   padding-bottom: 5px;
   text-align: center;
 }
@@ -3301,7 +3301,7 @@ color
 .article-entry h3 {
   margin: 0.5em auto;
   color: #fff;
-  background: rgba(0,0,0,0.27);
+  background: #f38a8a;
   border: 1px dashed #020202;
   padding: 0.2em 0.6em;
   font-weight: normal;
@@ -3367,12 +3367,12 @@ color
   margin: 0 10px;
 }
 .article-entry li:hover {
-  background-color: #2e2e2e;
+  background-color: #facfcf;
 }
 .article-entry .highlight::before {
   content: attr(data-lang) " code";
   display: block;
-  background-color: #0083a0;
+  background-color: #80210c;
   margin: 0 -10px 16px -10px;
   padding: 8px 16px;
   color: #efefef;
@@ -3385,7 +3385,7 @@ color
 .article-entry .highlight {
   border-radius: 4px;
   padding: 0 10px;
-  color: #fff;
+  color: #000;
 }
 .article-entry .highlight pre {
   border: none;
@@ -3443,7 +3443,7 @@ color
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
-  background: #002b36;
+  background: rgba(243,138,138,0.41);
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -3469,7 +3469,7 @@ color
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #002b36;
+  background: rgba(243,138,138,0.41);
   color: #75715e;
   font: 0.85em "Lucida Grande", Verdana, "Helvetica Neue", Arial, sans-serif;
   text-shadow: 0 0;

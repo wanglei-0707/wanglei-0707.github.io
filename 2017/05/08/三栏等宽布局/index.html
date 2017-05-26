@@ -3,23 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>三栏等宽布局 | Hexo</title>
+  <title>三栏等宽布局 | 小蕾蕾的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="有时候需要实现一行平均分为三个部分，常见的就是导航条。总结如下几种方法实现三栏等宽布局：
-宽度33.33% + float:left1234567891011121314151617&amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;111&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;222&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;333&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;ul&amp;#">
+  <meta name="description" content="有时候需要实现一行平均分为三个部分，常见的就是导航条。总结如下几种方法实现三栏等宽布局： 宽度33.33% + float:left&amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;111&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;222&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;333&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;ul&amp;#123;    width: 500px;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="三栏等宽布局">
-<meta property="og:url" content="http://yoursite.com/2017/05/08/三栏等宽布局/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="有时候需要实现一行平均分为三个部分，常见的就是导航条。总结如下几种方法实现三栏等宽布局：
-宽度33.33% + float:left1234567891011121314151617&amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;111&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;222&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;333&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;ul&amp;#">
-<meta property="og:updated_time" content="2017-05-08T06:59:33.377Z">
+<meta property="og:url" content="http://wanglei-0707.github.io/2017/05/08/三栏等宽布局/index.html">
+<meta property="og:site_name" content="小蕾蕾的个人博客">
+<meta property="og:description" content="有时候需要实现一行平均分为三个部分，常见的就是导航条。总结如下几种方法实现三栏等宽布局： 宽度33.33% + float:left&amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;111&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;222&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;333&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;ul&amp;#123;    width: 500px;">
+<meta property="og:updated_time" content="2017-05-09T01:05:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="三栏等宽布局">
-<meta name="twitter:description" content="有时候需要实现一行平均分为三个部分，常见的就是导航条。总结如下几种方法实现三栏等宽布局：
-宽度33.33% + float:left1234567891011121314151617&amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;111&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;222&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;333&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;ul&amp;#">
+<meta name="twitter:description" content="有时候需要实现一行平均分为三个部分，常见的就是导航条。总结如下几种方法实现三栏等宽布局： 宽度33.33% + float:left&amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;111&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;222&amp;lt;/li&amp;gt;    &amp;lt;li&amp;gt;333&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;ul&amp;#123;    width: 500px;">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="小蕾蕾的个人博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -210,10 +207,10 @@
       
           
         <p>有时候需要实现一行平均分为三个部分，常见的就是导航条。总结如下几种方法实现三栏等宽布局：</p>
-<h3 id="宽度33-33-float-left"><a href="#宽度33-33-float-left" class="headerlink" title="宽度33.33% + float:left"></a>宽度33.33% + float:left</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li&gt;111&lt;/li&gt;</div><div class="line">    &lt;li&gt;222&lt;/li&gt;</div><div class="line">    &lt;li&gt;333&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">    overflow: hidden;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    width: 33.33%;</div><div class="line">    float: left;</div><div class="line">    background: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="宽度33-33-display-inline-block-消除空隙"><a href="#宽度33-33-display-inline-block-消除空隙" class="headerlink" title="宽度33.33% + display:inline-block + 消除空隙"></a>宽度33.33% + display:inline-block + 消除空隙</h3><p>使用display：inline-block，每个li之间会有间隙，这是由于浏览器把li之间的空白符渲染成空格的原因。可以将和html结构中li之间的空格删除，但是这种方式对代码的可读性不友好，还可以使用负边距或者将父元素的字体大小设置为0这两种方法解决。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">/* 负边距的方法 */</div><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    display: inline-block;</div><div class="line">    width: 33.33%;</div><div class="line">    margin-right: -8px; /* 根据具体情况调整负边距的大小 */</div><div class="line">    background: red;</div><div class="line">&#125;</div><div class="line">/* 父元素字体大小设置为0的方法 */</div><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">    font-size: 0;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    display: inline-block;</div><div class="line">    width: 33.33%;</div><div class="line">    background: red;</div><div class="line">    font-size: 16px; /* 在子元素上重新设置字体大小 */</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">    display: flex;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    flex: 1;</div><div class="line">    background: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="li设置为display-table-cell，宽度设置为一个大于父元素宽度三分之一的数"><a href="#li设置为display-table-cell，宽度设置为一个大于父元素宽度三分之一的数" class="headerlink" title="li设置为display:table-cell，宽度设置为一个大于父元素宽度三分之一的数"></a>li设置为display:table-cell，宽度设置为一个大于父元素宽度三分之一的数</h3><p>设置为display:table-cell的元素会作为一个表格单元格显示，当宽度过大时，会自适应<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    display: table-cell;</div><div class="line">    width: 300px;</div><div class="line">    background: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="宽度33-33-float-left"><a href="#宽度33-33-float-left" class="headerlink" title="宽度33.33% + float:left"></a>宽度33.33% + float:left</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li&gt;111&lt;/li&gt;</div><div class="line">    &lt;li&gt;222&lt;/li&gt;</div><div class="line">    &lt;li&gt;333&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">    overflow: hidden;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    width: 33.33%;</div><div class="line">    float: left;</div><div class="line">    background: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="宽度33-33-display-inline-block-消除空隙"><a href="#宽度33-33-display-inline-block-消除空隙" class="headerlink" title="宽度33.33% + display:inline-block + 消除空隙"></a>宽度33.33% + display:inline-block + 消除空隙</h3><p>使用display：inline-block，每个li之间会有间隙，这是由于浏览器把li之间的空白符渲染成空格的原因。可以将和html结构中li之间的空格删除，但是这种方式对代码的可读性不友好，还可以使用负边距或者将父元素的字体大小设置为0这两种方法解决。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/* 负边距的方法 */</div><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    display: inline-block;</div><div class="line">    width: 33.33%;</div><div class="line">    margin-right: -8px; /* 根据具体情况调整负边距的大小 */</div><div class="line">    background: red;</div><div class="line">&#125;</div><div class="line">/* 父元素字体大小设置为0的方法 */</div><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">    font-size: 0;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    display: inline-block;</div><div class="line">    width: 33.33%;</div><div class="line">    background: red;</div><div class="line">    font-size: 16px; /* 在子元素上重新设置字体大小 */</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">    display: flex;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    flex: 1;</div><div class="line">    background: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="li设置为display-table-cell，宽度设置为一个大于父元素宽度三分之一的数"><a href="#li设置为display-table-cell，宽度设置为一个大于父元素宽度三分之一的数" class="headerlink" title="li设置为display:table-cell，宽度设置为一个大于父元素宽度三分之一的数"></a>li设置为display:table-cell，宽度设置为一个大于父元素宽度三分之一的数</h3><p>设置为display:table-cell的元素会作为一个表格单元格显示，当宽度过大时，会自适应<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ul&#123;</div><div class="line">    width: 500px;</div><div class="line">    background: #ccc;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">    list-style: none;</div><div class="line">    display: table-cell;</div><div class="line">    width: 300px;</div><div class="line">    background: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
       
@@ -226,10 +223,10 @@
         <p><span>本文标题:</span><a href="/2017/05/08/三栏等宽布局/">三栏等宽布局</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 小蕾蕾 的个人博客">小蕾蕾</a></p>
         <p><span>发布时间:</span>2017年05月08日 - 14时30分</p>
-        <p><span>最后更新:</span>2017年05月08日 - 14时59分</p>
+        <p><span>最后更新:</span>2017年05月09日 - 09时05分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/05/08/三栏等宽布局/" title="三栏等宽布局">http://yoursite.com/2017/05/08/三栏等宽布局/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/05/08/三栏等宽布局/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/05/08/三栏等宽布局/" title="三栏等宽布局">http://wanglei-0707.github.io/2017/05/08/三栏等宽布局/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wanglei-0707.github.io/2017/05/08/三栏等宽布局/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -303,7 +300,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/05/08/三栏等宽布局/" data-title="三栏等宽布局" data-url="http://yoursite.com/2017/05/08/三栏等宽布局/"></div>
+    <div class="ds-thread" data-thread-key="2017/05/08/三栏等宽布局/" data-title="三栏等宽布局" data-url="http://wanglei-0707.github.io/2017/05/08/三栏等宽布局/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
