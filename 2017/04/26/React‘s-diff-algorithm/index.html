@@ -13,10 +13,10 @@
 <meta property="og:site_name" content="小蕾蕾的个人博客">
 <meta property="og:description" content="翻译自React’s diff algorithm by Christopher Chedeau level by level在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。">
 <meta property="og:image" content="http://wanglei-0707.github.io/img/diff1.png">
-<meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff2.png">
-<meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff3.png">
-<meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff4.png">
-<meta property="og:updated_time" content="2017-06-10T12:09:49.000Z">
+<meta property="og:image" content="http://wanglei-0707.github.io/img/diff2.png">
+<meta property="og:image" content="http://wanglei-0707.github.io/img/diff3.png">
+<meta property="og:image" content="http://wanglei-0707.github.io/img/diff4.png">
+<meta property="og:updated_time" content="2017-06-10T12:10:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React&#39;s diff algorithm">
 <meta name="twitter:description" content="翻译自React’s diff algorithm by Christopher Chedeau level by level在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。">
@@ -233,15 +233,15 @@
 <a id="more"></a>
 <p>React尝试一层一层地调解，这样彻底减少了复杂性并且不会造成很大损失，因为在web应用中很少有一个组件被移动到树的不同层次上的情况，而通常的情况是子组件之间横向移动。<br><img src="/img/diff1.png" alt=""></p>
 <h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>假如我们有一个组件，通过迭代渲染5个组件，下一步是将一个新的组件插入到这个列表中。在只有这些信息的情况下很难知道如何在两个组件列表之间映射。</p>
-<p>默认地，React会把前一个列表的第一个组件和下一个列表的第一个组件联系起来，以此类推，你可以提供一个key属性用来帮助React实现映射。事实上，在子组件之间通常很容易找出唯一的键。<br><img src="../img/diff2.png" alt=""></p>
+<p>默认地，React会把前一个列表的第一个组件和下一个列表的第一个组件联系起来，以此类推，你可以提供一个key属性用来帮助React实现映射。事实上，在子组件之间通常很容易找出唯一的键。<br><img src="/img/diff2.png" alt=""></p>
 <h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><p>一个React App通常由很多的自定义组件构成，最终演变成一个大部分由div构成的组件树。diff算法将这个额外的信息考虑在内是因为React将只匹配具有相同类型的组件。</p>
-<p>举个例子，如果一个<header>被<exampleblock>替换，React将移出header并且创建一个example block。我们不需要花费宝贵的时间去匹配两个不可能有任何相似之处的组件。<br><img src="../img/diff3.png" alt=""></exampleblock></header></p>
+<p>举个例子，如果一个<header>被<exampleblock>替换，React将移出header并且创建一个example block。我们不需要花费宝贵的时间去匹配两个不可能有任何相似之处的组件。<br><img src="/img/diff3.png" alt=""></exampleblock></header></p>
 <h2 id="Event-Delegation"><a href="#Event-Delegation" class="headerlink" title="Event Delegation"></a>Event Delegation</h2><p>将事件监听绑定在DOM节点上会相当慢并且十分消耗内存，React实现了事件委托这个流行的技术来取代之。React进一步重新实现了兼容W3C事件系统。这意味着IE8事件处理bug已经是过去式，所有的事件名称在所有浏览器中保持一致。</p>
 <p>让我来解释React是怎么实现的。一个单一的事件监听器被绑定到文档的根元素上。当事件被触发，浏览器会给我们目标DOM节点，为了在DOM层次之间传播事件，React不在虚拟DOM层次间迭代。</p>
 <p>取而代之的我们依靠React组件有唯一的id值这个事实来编码层级(encode hierarchy)，我们可以使用简单的字符串操作来得到所有的父亲的id。通过将事件监听存储在一个hash map中，我们发现这样做比把事件监听附加到虚拟DOM上效果更好。下面这个例子演示了事件通过虚拟DOM分发会发生什么。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// dispatchEvent(&apos;click&apos;, &apos;a.b.c&apos;, event)</div><div class="line">clickCaptureListeners[&apos;a&apos;](event);</div><div class="line">clickCaptureListeners[&apos;a.b&apos;](event);</div><div class="line">clickCaptureListeners[&apos;a.b.c&apos;](event);</div><div class="line">clickBubbleListeners[&apos;a.b.c&apos;](event);</div><div class="line">clickBubbleListeners[&apos;a.b&apos;](event);</div><div class="line">clickBubbleListeners[&apos;a&apos;](event);</div></pre></td></tr></table></figure></p>
 <p>浏览器为每一个事件和每一个监听器生成了一个新的事件对象。这样的做法对你维护事件对象的引用，甚至是修改事件对象有很大的优势，但是，这意味着更高的内存分配。React一开始就分配；了一个事件对象池，无论何时需要一个事件对象，都可以从这个对象池中复用。这大大减少了垃圾收集的工作。</p>
 <h2 id="Rendering"><a href="#Rendering" class="headerlink" title="Rendering"></a>Rendering</h2><h3 id="batching"><a href="#batching" class="headerlink" title="batching"></a>batching</h3><p>无论何时在组件上调用setState，React将把它标记为脏组件。事件循环结束时，React查看所有的脏组件并重新渲染它们。</p>
-<p>batching意思是在一个事件循环中，DOM只会被更新一次。这个特性是构建高性能应用的关键，并且用通常的JavaScript代码难以实现。而在React应用中，默认就能实现。<br><img src="../img/diff4.png" alt=""></p>
+<p>batching意思是在一个事件循环中，DOM只会被更新一次。这个特性是构建高性能应用的关键，并且用通常的JavaScript代码难以实现。而在React应用中，默认就能实现。<br><img src="/img/diff4.png" alt=""></p>
 <p>未完待续。。。</p>
 
       
@@ -255,7 +255,7 @@
         <p><span>本文标题:</span><a href="/2017/04/26/React‘s-diff-algorithm/">React&#39;s diff algorithm</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 小蕾蕾 的个人博客">小蕾蕾</a></p>
         <p><span>发布时间:</span>2017年04月26日 - 14时43分</p>
-        <p><span>最后更新:</span>2017年06月10日 - 20时09分</p>
+        <p><span>最后更新:</span>2017年06月10日 - 20时10分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/04/26/React‘s-diff-algorithm/" title="React&#39;s diff algorithm">http://wanglei-0707.github.io/2017/04/26/React‘s-diff-algorithm/</a>
             <span class="copy-path" data-clipboard-text="原文: http://wanglei-0707.github.io/2017/04/26/React‘s-diff-algorithm/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
