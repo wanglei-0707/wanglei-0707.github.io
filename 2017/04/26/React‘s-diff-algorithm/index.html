@@ -15,7 +15,8 @@
 <meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff1.png">
 <meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff2.png">
 <meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff3.png">
-<meta property="og:updated_time" content="2017-06-10T11:43:14.000Z">
+<meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff4.png">
+<meta property="og:updated_time" content="2017-06-10T11:49:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React&#39;s diff algorithm">
 <meta name="twitter:description" content="翻译自React’s diff algorithm by Christopher Chedeau level by level在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。">
@@ -240,6 +241,7 @@
 <p>取而代之的我们依靠React组件有唯一的id值这个事实来编码层级(encode hierarchy)，我们可以使用简单的字符串操作来得到所有的父亲的id。通过将事件监听存储在一个hash map中，我们发现这样做比把事件监听附加到虚拟DOM上效果更好。下面这个例子演示了事件通过虚拟DOM分发会发生什么。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// dispatchEvent(&apos;click&apos;, &apos;a.b.c&apos;, event)</div><div class="line">clickCaptureListeners[&apos;a&apos;](event);</div><div class="line">clickCaptureListeners[&apos;a.b&apos;](event);</div><div class="line">clickCaptureListeners[&apos;a.b.c&apos;](event);</div><div class="line">clickBubbleListeners[&apos;a.b.c&apos;](event);</div><div class="line">clickBubbleListeners[&apos;a.b&apos;](event);</div><div class="line">clickBubbleListeners[&apos;a&apos;](event);</div></pre></td></tr></table></figure></p>
 <p>浏览器为每一个事件和每一个监听器生成了一个新的事件对象。这样的做法对你维护事件对象的引用，甚至是修改事件对象有很大的优势，但是，这意味着更高的内存分配。React一开始就分配；了一个事件对象池，无论何时需要一个事件对象，都可以从这个对象池中复用。这大大减少了垃圾收集的工作。</p>
 <h2 id="Rendering"><a href="#Rendering" class="headerlink" title="Rendering"></a>Rendering</h2><h3 id="batching"><a href="#batching" class="headerlink" title="batching"></a>batching</h3><p>无论何时在组件上调用setState，React将把它标记为脏组件。事件循环结束时，React查看所有的脏组件并重新渲染它们。</p>
+<p>batching意思是在一个事件循环中，DOM只会被更新一次。这个特性是构建高性能应用的关键，并且用通常的JavaScript代码难以实现。而在React应用中，默认就能实现。<br><img src="../img/diff4.png" alt=""></p>
 <p>未完待续。。。</p>
 
       
@@ -253,7 +255,7 @@
         <p><span>本文标题:</span><a href="/2017/04/26/React‘s-diff-algorithm/">React&#39;s diff algorithm</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 小蕾蕾 的个人博客">小蕾蕾</a></p>
         <p><span>发布时间:</span>2017年04月26日 - 14时43分</p>
-        <p><span>最后更新:</span>2017年06月10日 - 19时43分</p>
+        <p><span>最后更新:</span>2017年06月10日 - 19时49分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/04/26/React‘s-diff-algorithm/" title="React&#39;s diff algorithm">http://wanglei-0707.github.io/2017/04/26/React‘s-diff-algorithm/</a>
             <span class="copy-path" data-clipboard-text="原文: http://wanglei-0707.github.io/2017/04/26/React‘s-diff-algorithm/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
