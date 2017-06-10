@@ -2245,13 +2245,7 @@ a {
   border-bottom: none;
 }
 .scroll a .fa {
-  color: rgba(255,255,255,0.8);
-}
-.scroll a:hover {
-  background: rgba(147,181,224,0.3) !important;
-}
-.scroll a:hover .fa {
-  color: #fff;
+  color: #757474;
 }
 .hide-labels {
   position: fixed;
@@ -2704,9 +2698,6 @@ color
 .article-entry table thead tr {
   background: #2d2d2d;
 }
-.article-entry table tbody tr:hover {
-  background: #151414;
-}
 .article-entry table td,
 .article-entry table th {
   border: 1px solid #020202;
@@ -2716,9 +2707,6 @@ color
   border: none;
   width: auto;
   margin: 0;
-}
-.article-entry figure table tbody tr:hover {
-  background: none;
 }
 .article-entry code {
   color: #5d5656;
@@ -3200,7 +3188,7 @@ color
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: rgba(243,138,138,0.41);
+  background: #f1efef;
   margin: 10px 0;
   padding: 10px 10px;
   overflow: auto;
@@ -3366,9 +3354,6 @@ color
   list-style: decimal;
   margin: 0 10px;
 }
-.article-entry li:hover {
-  background-color: #facfcf;
-}
 .article-entry .highlight::before {
   content: attr(data-lang) " code";
   display: block;
@@ -3443,7 +3428,7 @@ color
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
-  background: rgba(243,138,138,0.41);
+  background: #f1efef;
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -3469,7 +3454,7 @@ color
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: rgba(243,138,138,0.41);
+  background: #f1efef;
   color: #75715e;
   font: 0.85em "Lucida Grande", Verdana, "Helvetica Neue", Arial, sans-serif;
   text-shadow: 0 0;
