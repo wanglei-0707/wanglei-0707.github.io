@@ -12,15 +12,15 @@
 <meta property="og:url" content="http://wanglei-0707.github.io/2017/04/26/React‘s-diff-algorithm/index.html">
 <meta property="og:site_name" content="小蕾蕾的个人博客">
 <meta property="og:description" content="翻译自React’s diff algorithm by Christopher Chedeau level by level在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。">
-<meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff1.png">
+<meta property="og:image" content="http://wanglei-0707.github.io/img/diff1.png">
 <meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff2.png">
 <meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff3.png">
 <meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff4.png">
-<meta property="og:updated_time" content="2017-06-10T11:49:06.000Z">
+<meta property="og:updated_time" content="2017-06-10T12:09:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React&#39;s diff algorithm">
 <meta name="twitter:description" content="翻译自React’s diff algorithm by Christopher Chedeau level by level在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。">
-<meta name="twitter:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff1.png">
+<meta name="twitter:image" content="http://wanglei-0707.github.io/img/diff1.png">
   
     <link rel="alternative" href="/atom.xml" title="小蕾蕾的个人博客" type="application/atom+xml">
   
@@ -231,7 +231,7 @@
         <p>翻译自<a href="https://calendar.perfplanet.com/2013/diff/" target="_blank" rel="external">React’s diff algorithm by Christopher Chedeau</a></p>
 <h2 id="level-by-level"><a href="#level-by-level" class="headerlink" title="level by level"></a>level by level</h2><p>在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。</p>
 <a id="more"></a>
-<p>React尝试一层一层地调解，这样彻底减少了复杂性并且不会造成很大损失，因为在web应用中很少有一个组件被移动到树的不同层次上的情况，而通常的情况是子组件之间横向移动。<br><img src="../img/diff1.png" alt=""></p>
+<p>React尝试一层一层地调解，这样彻底减少了复杂性并且不会造成很大损失，因为在web应用中很少有一个组件被移动到树的不同层次上的情况，而通常的情况是子组件之间横向移动。<br><img src="/img/diff1.png" alt=""></p>
 <h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>假如我们有一个组件，通过迭代渲染5个组件，下一步是将一个新的组件插入到这个列表中。在只有这些信息的情况下很难知道如何在两个组件列表之间映射。</p>
 <p>默认地，React会把前一个列表的第一个组件和下一个列表的第一个组件联系起来，以此类推，你可以提供一个key属性用来帮助React实现映射。事实上，在子组件之间通常很容易找出唯一的键。<br><img src="../img/diff2.png" alt=""></p>
 <h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><p>一个React App通常由很多的自定义组件构成，最终演变成一个大部分由div构成的组件树。diff算法将这个额外的信息考虑在内是因为React将只匹配具有相同类型的组件。</p>
@@ -255,7 +255,7 @@
         <p><span>本文标题:</span><a href="/2017/04/26/React‘s-diff-algorithm/">React&#39;s diff algorithm</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 小蕾蕾 的个人博客">小蕾蕾</a></p>
         <p><span>发布时间:</span>2017年04月26日 - 14时43分</p>
-        <p><span>最后更新:</span>2017年06月10日 - 19时49分</p>
+        <p><span>最后更新:</span>2017年06月10日 - 20时09分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/04/26/React‘s-diff-algorithm/" title="React&#39;s diff algorithm">http://wanglei-0707.github.io/2017/04/26/React‘s-diff-algorithm/</a>
             <span class="copy-path" data-clipboard-text="原文: http://wanglei-0707.github.io/2017/04/26/React‘s-diff-algorithm/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
