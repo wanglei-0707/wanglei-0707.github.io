@@ -2625,8 +2625,8 @@ color
 .article-entry li code {
   padding: 1px 3px;
   margin: 0 3px;
-  color: #999;
-  background: #f7b3b3;
+  color: #5d5656;
+  background: #e2dddd;
   border: 1px dashed #ccc;
   border-radius: 3px;
   font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
@@ -2721,8 +2721,8 @@ color
   background: none;
 }
 .article-entry code {
-  color: #999;
-  background: #f7b3b3;
+  color: #5d5656;
+  background: #e2dddd;
   padding: 1px 3px;
   border-radius: 5px;
 }
@@ -3231,7 +3231,7 @@ color
   box-sizing: border-box;
 }
 .article-entry code {
-  background: #f7b3b3;
+  background: #e2dddd;
   padding: 0 0.3em;
   border: none;
 }
@@ -3247,14 +3247,14 @@ color
 .article-entry p code {
   margin: 0 3px;
   border: dashed 1px #000;
-  color: #999;
+  color: #5d5656;
   padding: 1px 8px;
   font-size: 90%;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   font-family: Consolas, "Courier New", Courier;
   text-shadow: none;
-  background-color: #f7b3b3;
+  background-color: #e2dddd;
   word-wrap: break-word;
   white-space: pre;
 }
