@@ -3,18 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>form表单无刷新提交 | 小蕾蕾的个人博客</title>
+  <title>React&#39;s diff algorithm | 小蕾蕾的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天看面经看到了一个问题，form表单当前页面无刷新提交。我只知道可以使用AJAX方法实现，然后就查了一下这个问题。很多博客都写了，基本都是一样的，就是使用一个隐藏的iframe，将form表单的target设置成这个隐藏的iframe的id值，然后我就自己尝试了一下。代码如下:">
+  <meta name="description" content="翻译自React’s diff algorithm by Christopher Chedeau level by level在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。">
+<meta name="keywords" content="React,虚拟DOM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="form表单无刷新提交">
-<meta property="og:url" content="http://wanglei-0707.github.io/2017/04/03/form表单无刷新提交/index.html">
+<meta property="og:title" content="React&#39;s diff algorithm">
+<meta property="og:url" content="http://wanglei-0707.github.io/2017/04/26/React‘s-diff-algorithm/index.html">
 <meta property="og:site_name" content="小蕾蕾的个人博客">
-<meta property="og:description" content="今天看面经看到了一个问题，form表单当前页面无刷新提交。我只知道可以使用AJAX方法实现，然后就查了一下这个问题。很多博客都写了，基本都是一样的，就是使用一个隐藏的iframe，将form表单的target设置成这个隐藏的iframe的id值，然后我就自己尝试了一下。代码如下:">
-<meta property="og:updated_time" content="2017-05-26T13:32:28.000Z">
+<meta property="og:description" content="翻译自React’s diff algorithm by Christopher Chedeau level by level在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。">
+<meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff1.png">
+<meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff2.png">
+<meta property="og:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff3.png">
+<meta property="og:updated_time" content="2017-06-10T11:43:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="form表单无刷新提交">
-<meta name="twitter:description" content="今天看面经看到了一个问题，form表单当前页面无刷新提交。我只知道可以使用AJAX方法实现，然后就查了一下这个问题。很多博客都写了，基本都是一样的，就是使用一个隐藏的iframe，将form表单的target设置成这个隐藏的iframe的id值，然后我就自己尝试了一下。代码如下:">
+<meta name="twitter:title" content="React&#39;s diff algorithm">
+<meta name="twitter:description" content="翻译自React’s diff algorithm by Christopher Chedeau level by level在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。">
+<meta name="twitter:image" content="http://wanglei-0707.github.io/2017/04/26/img/diff1.png">
   
     <link rel="alternative" href="/atom.xml" title="小蕾蕾的个人博客" type="application/atom+xml">
   
@@ -184,11 +189,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-form表单无刷新提交" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-React‘s-diff-algorithm" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/03/form表单无刷新提交/" class="article-date">
-      <time datetime="2017-04-03T08:11:03.000Z" itemprop="datePublished">2017-04-03</time>
+      <a href="/2017/04/26/React‘s-diff-algorithm/" class="article-date">
+      <time datetime="2017-04-26T06:43:12.000Z" itemprop="datePublished">2017-04-26</time>
 </a>
     </div>
   
@@ -201,7 +206,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      form表单无刷新提交
+      React&#39;s diff algorithm
     </h1>
   
 
@@ -211,6 +216,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/虚拟DOM/">虚拟DOM</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -218,10 +227,20 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>今天看面经看到了一个问题，form表单当前页面无刷新提交。我只知道可以使用AJAX方法实现，然后就查了一下这个问题。很多博客都写了，基本都是一样的，就是使用一个隐藏的iframe，将form表单的target设置成这个隐藏的iframe的id值，然后我就自己尝试了一下。代码如下:</p>
+        <p>翻译自<a href="https://calendar.perfplanet.com/2013/diff/" target="_blank" rel="external">React’s diff algorithm by Christopher Chedeau</a></p>
+<h2 id="level-by-level"><a href="#level-by-level" class="headerlink" title="level by level"></a>level by level</h2><p>在任意两颗树之间找最小的修改数量是一个O(n^3)的问题。可以想象一下，这并不适合我们的使用情况。React使用简单的并且强大的启发式算法可以在O(n)时间内找到一个很好的近似值。</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;form name=&quot;form1&quot; action=&quot;upload.jsp&quot; method=&quot;post&quot; target=&quot;iframe&quot;&gt;</div><div class="line">    &lt;input type=&quot;text&quot; name=&quot;username&quot; value=&quot;&quot;&gt;</div><div class="line">    &lt;input type=&quot;text&quot; name=&quot;password&quot; value=&quot;&quot;&gt;</div><div class="line">    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</div><div class="line">&lt;/form&gt;</div><div class="line">&lt;iframe name=&quot;hidden_iframe&quot; id=&quot;iframe&quot; style=&quot;display:none&quot;&gt;&lt;/iframe&gt;</div></pre></td></tr></table></figure>
-<p>然而！！！我发现当前页面确实是没有刷新，但是会打开一个新的标签页！多次尝试之后才发现，<strong>target不是设置成iframe的id值，而应该是name值</strong>，这样就不会新打开一个标签页，当前页面也不会刷新了。</p>
+<p>React尝试一层一层地调解，这样彻底减少了复杂性并且不会造成很大损失，因为在web应用中很少有一个组件被移动到树的不同层次上的情况，而通常的情况是子组件之间横向移动。<br><img src="../img/diff1.png" alt=""></p>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>假如我们有一个组件，通过迭代渲染5个组件，下一步是将一个新的组件插入到这个列表中。在只有这些信息的情况下很难知道如何在两个组件列表之间映射。</p>
+<p>默认地，React会把前一个列表的第一个组件和下一个列表的第一个组件联系起来，以此类推，你可以提供一个key属性用来帮助React实现映射。事实上，在子组件之间通常很容易找出唯一的键。<br><img src="../img/diff2.png" alt=""></p>
+<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><p>一个React App通常由很多的自定义组件构成，最终演变成一个大部分由div构成的组件树。diff算法将这个额外的信息考虑在内是因为React将只匹配具有相同类型的组件。</p>
+<p>举个例子，如果一个<header>被<exampleblock>替换，React将移出header并且创建一个example block。我们不需要花费宝贵的时间去匹配两个不可能有任何相似之处的组件。<br><img src="../img/diff3.png" alt=""></exampleblock></header></p>
+<h2 id="Event-Delegation"><a href="#Event-Delegation" class="headerlink" title="Event Delegation"></a>Event Delegation</h2><p>将事件监听绑定在DOM节点上会相当慢并且十分消耗内存，React实现了事件委托这个流行的技术来取代之。React进一步重新实现了兼容W3C事件系统。这意味着IE8事件处理bug已经是过去式，所有的事件名称在所有浏览器中保持一致。</p>
+<p>让我来解释React是怎么实现的。一个单一的事件监听器被绑定到文档的根元素上。当事件被触发，浏览器会给我们目标DOM节点，为了在DOM层次之间传播事件，React不在虚拟DOM层次间迭代。</p>
+<p>取而代之的我们依靠React组件有唯一的id值这个事实来编码层级(encode hierarchy)，我们可以使用简单的字符串操作来得到所有的父亲的id。通过将事件监听存储在一个hash map中，我们发现这样做比把事件监听附加到虚拟DOM上效果更好。下面这个例子演示了事件通过虚拟DOM分发会发生什么。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// dispatchEvent(&apos;click&apos;, &apos;a.b.c&apos;, event)</div><div class="line">clickCaptureListeners[&apos;a&apos;](event);</div><div class="line">clickCaptureListeners[&apos;a.b&apos;](event);</div><div class="line">clickCaptureListeners[&apos;a.b.c&apos;](event);</div><div class="line">clickBubbleListeners[&apos;a.b.c&apos;](event);</div><div class="line">clickBubbleListeners[&apos;a.b&apos;](event);</div><div class="line">clickBubbleListeners[&apos;a&apos;](event);</div></pre></td></tr></table></figure></p>
+<p>浏览器为每一个事件和每一个监听器生成了一个新的事件对象。这样的做法对你维护事件对象的引用，甚至是修改事件对象有很大的优势，但是，这意味着更高的内存分配。React一开始就分配；了一个事件对象池，无论何时需要一个事件对象，都可以从这个对象池中复用。这大大减少了垃圾收集的工作。</p>
+<h2 id="Rendering"><a href="#Rendering" class="headerlink" title="Rendering"></a>Rendering</h2><h3 id="batching"><a href="#batching" class="headerlink" title="batching"></a>batching</h3><p>无论何时在组件上调用setState，React将把它标记为脏组件。事件循环结束时，React查看所有的脏组件并重新渲染它们。</p>
+<p>未完待续。。。</p>
 
       
       
@@ -231,13 +250,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/04/03/form表单无刷新提交/">form表单无刷新提交</a></p>
+        <p><span>本文标题:</span><a href="/2017/04/26/React‘s-diff-algorithm/">React&#39;s diff algorithm</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 小蕾蕾 的个人博客">小蕾蕾</a></p>
-        <p><span>发布时间:</span>2017年04月03日 - 16时11分</p>
-        <p><span>最后更新:</span>2017年05月26日 - 21时32分</p>
+        <p><span>发布时间:</span>2017年04月26日 - 14时43分</p>
+        <p><span>最后更新:</span>2017年06月10日 - 19时43分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/04/03/form表单无刷新提交/" title="form表单无刷新提交">http://wanglei-0707.github.io/2017/04/03/form表单无刷新提交/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://wanglei-0707.github.io/2017/04/03/form表单无刷新提交/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/26/React‘s-diff-algorithm/" title="React&#39;s diff algorithm">http://wanglei-0707.github.io/2017/04/26/React‘s-diff-algorithm/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wanglei-0707.github.io/2017/04/26/React‘s-diff-algorithm/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -250,18 +269,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/04/15/js中的函数声明和函数表达式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/05/08/三栏布局/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          js中的函数声明和函数表达式
+          三栏布局
         
       </div>
     </a>
   
   
-    <a href="/2017/03/20/浏览器缓存/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">浏览器缓存</div>
+    <a href="/2017/04/15/js中的函数声明和函数表达式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js中的函数声明和函数表达式</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -272,7 +291,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#level-by-level"><span class="toc-number">1.</span> <span class="toc-text">level by level</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#List"><span class="toc-number">2.</span> <span class="toc-text">List</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Components"><span class="toc-number">3.</span> <span class="toc-text">Components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Event-Delegation"><span class="toc-number">4.</span> <span class="toc-text">Event Delegation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rendering"><span class="toc-number">5.</span> <span class="toc-text">Rendering</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#batching"><span class="toc-number">5.1.</span> <span class="toc-text">batching</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -320,7 +339,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2017/04/03/form表单无刷新提交/" data-title="form表单无刷新提交" data-url="http://wanglei-0707.github.io/2017/04/03/form表单无刷新提交/"></div>
+    <div class="ds-thread" data-thread-key="2017/04/26/React‘s-diff-algorithm/" data-title="React&#39;s diff algorithm" data-url="http://wanglei-0707.github.io/2017/04/26/React‘s-diff-algorithm/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -343,13 +362,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/04/15/js中的函数声明和函数表达式/" title="上一篇: js中的函数声明和函数表达式">
+            <a href="/2017/05/08/三栏布局/" title="上一篇: 三栏布局">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/03/20/浏览器缓存/" title="下一篇: 浏览器缓存">
+            <a href="/2017/04/15/js中的函数声明和函数表达式/" title="下一篇: js中的函数声明和函数表达式">
                 <i class="fa fa-angle-right"></i>
             </a>
         
