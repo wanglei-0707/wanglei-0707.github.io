@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: mvvm | 小蕾蕾的个人博客</title>
+  <title>Category: Javascript | 小蕾蕾的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="王蕾的学习笔记和心得">
 <meta property="og:type" content="website">
 <meta property="og:title" content="小蕾蕾的个人博客">
-<meta property="og:url" content="http://wanglei-0707.github.io/tags/mvvm/index.html">
+<meta property="og:url" content="http://wanglei-0707.github.io/categories/前端/Javascript/index.html">
 <meta property="og:site_name" content="小蕾蕾的个人博客">
 <meta property="og:description" content="王蕾的学习笔记和心得">
 <meta name="twitter:card" content="summary">
@@ -41,8 +41,8 @@
           isHome: false,
           isPost: false,
           isArchive: false,
-          isTag: true,
-          isCategory: false,
+          isTag: false,
+          isCategory: true,
           open_in_new: false
       }
   </script>
@@ -204,29 +204,25 @@
   <div class="archive-article-inner">
     <header class="archive-article-header">
           <div class="article-meta">
-              <a href="/2017/05/28/mvc和mvvm模式的区别/" class="archive-article-date">
-      <time datetime="2017-05-28T11:22:30.000Z" itemprop="datePublished">05-28</time>
+              <a href="/2017/04/03/form表单无刷新提交/" class="archive-article-date">
+      <time datetime="2017-04-03T08:11:03.000Z" itemprop="datePublished">04-03</time>
 </a>
         </div>
          
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/28/mvc和mvvm模式的区别/">mvc和mvvm模式的区别</a>
+      <a class="archive-article-title" href="/2017/04/03/form表单无刷新提交/">form表单无刷新提交</a>
     </h1>
   
 
         <div class="article-info info-on-archive">
           
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端/">前端</a><a class="article-category-link" href="/categories/前端/JavaScript/">JavaScript</a>
+    <a class="article-category-link" href="/categories/前端/">前端</a><a class="article-category-link" href="/categories/前端/Javascript/">Javascript</a>
     </div>
 
 
           
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvvm/">mvvm</a></li></ul>
-    </div>
-
         </div>
         <div class="clearfix"></div>
     </header>
@@ -299,6 +295,55 @@
 <script>
     $(document).ready(function() {
         if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+    <button class="hide-labels">TAG 开关</button>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                $(".article-info").toggle(200);
+            });
+        });
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>{
             $("#scroll > a:nth-child(2)").hide();
         };
     })

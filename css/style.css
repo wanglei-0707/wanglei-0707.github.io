@@ -2408,7 +2408,7 @@ color
   transition: color 0.3s;
 }
 .archives .archive-article-title:hover {
-  color: #fff;
+  color: #e16f6e;
 }
 .archives .archive-article-title span {
   display: block;
@@ -3105,7 +3105,7 @@ color
   transition: color 0.3s;
 }
 .archives .archive-article-title:hover {
-  color: #fff;
+  color: #e16f6e;
 }
 .archives .archive-article-title span {
   display: block;
@@ -3567,7 +3567,7 @@ pre .link_url {
   -moz-osx-font-smoothing: grayscale;
 }
 .bdshare-button-style2-24 .fx:hover {
-  color: #fff;
+  color: #e16f6e;
   opacity: 1;
 }
 .share {
