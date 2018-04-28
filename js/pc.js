@@ -12,7 +12,7 @@ define([], function(){
                 $tipBox.addClass("hide");
             },
             init: function(){
-                
+
             }
         }
     })();
@@ -66,44 +66,44 @@ define([], function(){
         var isEnterBtn = false;
         var isEnterTips = false;
 
-        $(".icon").bind("mouseenter", function(){
-            isEnterBtn = true;
-            Tips.show();
-        }).bind("mouseleave", function(){
-            isEnterBtn = false;
-            setTimeout(function(){
-                if(!isEnterTips){
-                    Tips.hide();
-                }
-            }, 100);
-        });
-
-        $(".tips-box").bind("mouseenter", function(){
-            isEnterTips = true;
-            Tips.show();
-        }).bind("mouseleave", function(){
-            isEnterTips = false;
-            setTimeout(function(){
-                if(!isEnterBtn){
-                    Tips.hide();
-                }
-            }, 100);
-        });
+        // $(".icon").bind("mouseenter", function(){
+        //     isEnterBtn = true;
+        //     Tips.show();
+        // }).bind("mouseleave", function(){
+        //     isEnterBtn = false;
+        //     setTimeout(function(){
+        //         if(!isEnterTips){
+        //             Tips.hide();
+        //         }
+        //     }, 100);
+        // });
+        //
+        // $(".tips-box").bind("mouseenter", function(){
+        //     isEnterTips = true;
+        //     Tips.show();
+        // }).bind("mouseleave", function(){
+        //     isEnterTips = false;
+        //     setTimeout(function(){
+        //         if(!isEnterBtn){
+        //             Tips.hide();
+        //         }
+        //     }, 100);
+        // });
 
         $(".tips-inner li").bind("click", function(){
             var idx = $(this).index();
             slide(idx);
-            Tips.hide();
+            // Tips.hide();
         });
     }
 
-    
+
 
     return {
         init: function(){
             resetTags();
             bind();
-            Tips.init();
+            // Tips.init();
         }
     }
 });
