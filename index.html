@@ -130,7 +130,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/tags/virtual-DOM/" style="font-size: 15px;">virtual DOM</a> <a href="/tags/函数声明/" style="font-size: 10px;">函数声明</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/跨域/" style="font-size: 15px;">跨域</a>
+                        <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/tags/virtual-DOM/" style="font-size: 15px;">virtual DOM</a> <a href="/tags/函数声明/" style="font-size: 10px;">函数声明</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/跨域/" style="font-size: 15px;">跨域</a>
                     </div>
                 </section>
                 
@@ -191,6 +191,76 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Object-is-VS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/05/02/Object-is-VS/" class="article-date">
+      <time datetime="2018-05-02T08:37:51.000Z" itemprop="datePublished">2018-05-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/02/Object-is-VS/">Object.is() VS ===</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>今天本来打算看一下React 16.3中新的特性，刚打开<a href="https://github.com/facebook/react/pull/11818" target="_blank" rel="external">New context API</a> 这个PR的时候，就看到列的TODO list中的第四条:</p>
+<p>Should we use Object.is to compare context values, or is === enough? shallowEqual uses Object.is, but we use === everywhere else.</p>
+<p>还真不知道这两中比较方式有什么区别，遂查之。</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端/">前端</a><a class="article-category-link" href="/categories/前端/Javascript/">Javascript</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2018/05/02/Object-is-VS/#more">显示全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-git撤销commit" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -780,74 +850,6 @@
       
         <p class="article-more-link">
           <a  href="/2017/04/03/form表单无刷新提交/#more">显示全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-浏览器缓存" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/20/浏览器缓存/" class="article-date">
-      <time datetime="2017-03-20T02:29:15.000Z" itemprop="datePublished">2017-03-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/20/浏览器缓存/">浏览器缓存</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="http缓存"><a href="#http缓存" class="headerlink" title="http缓存"></a>http缓存</h2><h3 id="Cache-Control-请求头部"><a href="#Cache-Control-请求头部" class="headerlink" title="Cache-Control(请求头部):"></a>Cache-Control(请求头部):</h3>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端/">前端</a><a class="article-category-link" href="/categories/前端/缓存/">缓存</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/缓存/">缓存</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/03/20/浏览器缓存/#more">显示全文 >></a>
         </p>
       
       <div class="clearfix"></div>
