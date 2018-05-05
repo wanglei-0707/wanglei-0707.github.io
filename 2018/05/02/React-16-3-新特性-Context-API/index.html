@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React 16.3 新特性 -- Context API | 小蕾蕾的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="React在2018年3月29日发布了新版本16.3.0，这一版本带来了很多新特性，让我们一起来学习一下吧~">
+<meta name="keywords" content="React,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 16.3 新特性 -- Context API">
+<meta property="og:url" content="http://wanglei-0707.github.io/2018/05/02/React-16-3-新特性-Context-API/index.html">
+<meta property="og:site_name" content="小蕾蕾的个人博客">
+<meta property="og:description" content="React在2018年3月29日发布了新版本16.3.0，这一版本带来了很多新特性，让我们一起来学习一下吧~">
+<meta property="og:updated_time" content="2018-05-05T06:57:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React 16.3 新特性 -- Context API">
+<meta name="twitter:description" content="React在2018年3月29日发布了新版本16.3.0，这一版本带来了很多新特性，让我们一起来学习一下吧~">
+  
+    <link rel="alternative" href="/atom.xml" title="小蕾蕾的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.jpg">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/tx.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">小蕾蕾</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">一分付出，一分收获</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">首   页</a></li>
+                        
+                            <li><a href="/archives">归   档</a></li>
+                        
+                            <li><a href="/categories">分   类</a></li>
+                        
+                            <li><a href="/tags">标   签</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/wanglei-0707" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="#" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/js/" style="font-size: 13.33px;">js</a> <a href="/tags/mvvm/" style="font-size: 10px;">mvvm</a> <a href="/tags/virtual-DOM/" style="font-size: 13.33px;">virtual DOM</a> <a href="/tags/函数声明/" style="font-size: 10px;">函数声明</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/跨域/" style="font-size: 13.33px;">跨域</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">小蕾蕾</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/tx.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">小蕾蕾</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">一分付出，一分收获</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">首   页</a></li>
+                
+                    <li><a href="/archives">归   档</a></li>
+                
+                    <li><a href="/categories">分   类</a></li>
+                
+                    <li><a href="/tags">标   签</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/wanglei-0707" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-React-16-3-新特性-Context-API" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/05/02/React-16-3-新特性-Context-API/" class="article-date">
+      <time datetime="2018-05-02T12:33:22.000Z" itemprop="datePublished">2018-05-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React 16.3 新特性 -- Context API
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端/">前端</a><a class="article-category-link" href="/categories/前端/React/">React</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>React在2018年3月29日发布了新版本16.3.0，这一版本带来了很多新特性，让我们一起来学习一下吧~</p>
+<a id="more"></a>
+<p>其实在之前版本的React中就存在context，只不过官方一直不推荐使用。当一个属性需要从最外部的组件传递到最内部的组件中时，使用props逐层传递会让人觉得很不友好，因为中间的组件其实并不需要这个属性，只是因为它内部的组件需要使用而已。此时，可以使用context来避免逐层传递。</p>
+<h2 id="context的使用场景"><a href="#context的使用场景" class="headerlink" title="context的使用场景"></a>context的使用场景</h2><p>context类似于将变量定义成了组件树中的全局变量，多个组件都可以直接访问该变量。具有这种“全局”性质的数据可以是当前验证的用户信息，主题信息，首选语言等。<strong>官方提醒不要为了避免仅有几层的props传递就使用context，而应该坚持只有在数据需要在经过多层传递且在很多组件中使用时才使用context。</strong></p>
+<h2 id="context-API"><a href="#context-API" class="headerlink" title="context API"></a>context API</h2><h3 id="React-createContext"><a href="#React-createContext" class="headerlink" title="React.createContext()"></a>React.createContext()</h3><p>此函数用来创建一个context变量。该变量具有Provider和Consumer两个默认属性。可以传递一个参数用来设置变量的默认值。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">const themeContext = React.createContext(defaultValue)</div><div class="line">const &#123; Provider, Consumer &#125; = ThemeContext</div></pre></td></tr></table></figure></p>
+<h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h3><p>Provider用来发布该context变量，使用value属性设置这个值。Provider可以嵌套，内层的Provider会覆盖外层的Provider。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;ThemeContext.Provider value=&#123;newValue&#125;&gt;</div><div class="line">  &lt;OtherComponent&gt;</div><div class="line">&lt;/ThemeContext&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h3><p>Consumer用来订阅该context变量。Consumer包含在Provider内部，它会从离它最近的父级Provider中获取该变量的值。</p>
+<p>Consumer的孩子必须是一个函数，该函数接受从Provider获取到的变量的值作为输入，并返回一个React节点。如果Consumer没有被包含在一个Provider内部，则该函数的输入参数是创建context变量时传入的默认值defaultValue。</p>
+<p>当Provider中的value值发生变化的时候，其内部的所有Consumer都会重新渲染。value变化的判断算法使用的是与Object.is()方法一样的sameValue算法。因此当如下这样赋值时，会引起不必要的Consumer的重新渲染<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;Provider value=&#123;&#123; key: value &#125;&#125;&gt;</div></pre></td></tr></table></figure></p>
+<p>因为当Provider的父级元素重新渲染时，Provider的value会指向一个新创建的对象，尽管值没有发生任何变化，但是引用不同了，所以SameValue算法会返回false，导致Consumer重新渲染。因此，最好将对象类型的变量事先定义在state中，通过变量名来引用。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">class App extends React.Component &#123;</div><div class="line">  constructor (props) &#123;</div><div class="line">    super(props)</div><div class="line">    this.state = &#123;</div><div class="line">      someValue: &#123; key: value &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render () &#123;</div><div class="line">    return (</div><div class="line">      &lt;Provider value=&#123; this.state.someValue &#125;&gt;</div><div class="line">        &lt;OtherComponent /&gt;</div><div class="line">      &lt;/Provider&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="Context实践"><a href="#Context实践" class="headerlink" title="Context实践"></a>Context实践</h2><h3 id="一键切换按钮的样式"><a href="#一键切换按钮的样式" class="headerlink" title="一键切换按钮的样式"></a>一键切换按钮的样式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// ThemeContext.js</div><div class="line">import React from &apos;react&apos;</div><div class="line"></div><div class="line">export const themes = &#123;</div><div class="line">  light: &#123;</div><div class="line">    foreground: &apos;#000000&apos;,</div><div class="line">    background: &apos;#ffffff&apos;</div><div class="line">  &#125;,</div><div class="line">  dark: &#123;</div><div class="line">    foreground: &apos;#ffffff&apos;,</div><div class="line">    background: &apos;#000000&apos;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export const ThemeContext = React.createContext(themes.dark)</div><div class="line"></div><div class="line">// ThemedButton.js</div><div class="line">import React from &apos;react&apos;</div><div class="line">import &#123; ThemeContext &#125; from &apos;./ThemeContext.js&apos;</div><div class="line"></div><div class="line">function ThemedButton (props) &#123;</div><div class="line">  return (</div><div class="line">    &lt;ThemeContext.Consumer&gt;</div><div class="line">      &#123;theme =&gt; (</div><div class="line">        &lt;button</div><div class="line">          &#123;...props&#125;</div><div class="line">          style=&#123;&#123; backgroundColor: theme.background, color: theme.foreground &#125;&#125;</div><div class="line">        &gt;</div><div class="line">          &#123;props.children || &apos;Context API&apos; &#125;</div><div class="line">        &lt;/button&gt;</div><div class="line">      )&#125;</div><div class="line">    &lt;/ThemeContext.Consumer&gt;</div><div class="line">  )</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default ThemedButton</div><div class="line"></div><div class="line">// App.js</div><div class="line">import React, &#123; Component &#125; from &apos;react&apos;;</div><div class="line">import &#123; themes, ThemeContext &#125; from &apos;./ThemeContext.js&apos;</div><div class="line">import ThemedButton from &apos;./ThemedButton.js&apos;</div><div class="line"></div><div class="line">function ToolBar (props) &#123;</div><div class="line">  return (</div><div class="line">    &lt;ThemedButton onClick=&#123;props.changeTheme&#125;&gt;</div><div class="line">      change theme</div><div class="line">    &lt;/ThemedButton&gt;</div><div class="line">  )</div><div class="line">&#125;</div><div class="line"></div><div class="line">class App extends Component &#123;</div><div class="line">  constructor (props) &#123;</div><div class="line">    super(props)</div><div class="line">    this.state = &#123;</div><div class="line">      theme: themes.light</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  toggleTheme = () =&gt; &#123;</div><div class="line">    this.setState(&#123;</div><div class="line">      theme: this.state.theme === themes.dark ? themes.light : themes.dark</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;ThemeContext.Provider value=&#123;this.state.theme&#125;&gt;</div><div class="line">          &lt;ToolBar changeTheme=&#123;this.toggleTheme&#125; /&gt;</div><div class="line">        &lt;/ThemeContext.Provider&gt;</div><div class="line">        &lt;ThemedButton /&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default App;</div></pre></td></tr></table></figure>
+<h3 id="通过context传递一个函数"><a href="#通过context传递一个函数" class="headerlink" title="通过context传递一个函数"></a>通过context传递一个函数</h3><p>context除了可以传递变量，还可以传递函数，Consumer可以通过传递的函数对context进行更新。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// ThemeContext.js</div><div class="line">import React from &apos;react&apos;</div><div class="line"></div><div class="line">export const themes = &#123;</div><div class="line">  light: &#123;</div><div class="line">    foreground: &apos;#000000&apos;,</div><div class="line">    background: &apos;#ffffff&apos;</div><div class="line">  &#125;,</div><div class="line">  dark: &#123;</div><div class="line">    foreground: &apos;#ffffff&apos;,</div><div class="line">    background: &apos;#000000&apos;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export const ThemeContext = React.createContext(&#123;</div><div class="line">  theme: themes.dark,</div><div class="line">  toggleTheme: () =&gt; &#123;&#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// ThemedButton.js</div><div class="line">import React from &apos;react&apos;</div><div class="line">import &#123; ThemeContext &#125; from &apos;./Context.js&apos;</div><div class="line"></div><div class="line">function ThemedButton (props) &#123;</div><div class="line">  return (</div><div class="line">    &lt;ThemeContext.Consumer&gt;</div><div class="line">      &#123;(&#123; theme, toggleTheme &#125;) =&gt; (</div><div class="line">        &lt;button</div><div class="line">          &#123;...props&#125;</div><div class="line">          style=&#123;&#123; backgroundColor: theme.background, color: theme.foreground &#125;&#125;</div><div class="line">          onClick=&#123;toggleTheme&#125;</div><div class="line">        &gt;</div><div class="line">          &#123;props.children || &apos;Context API&apos; &#125;</div><div class="line">        &lt;/button&gt;</div><div class="line">      )&#125;</div><div class="line">    &lt;/ThemeContext.Consumer&gt;</div><div class="line">  )</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default ThemedButton</div><div class="line"></div><div class="line">// App.js</div><div class="line">import React, &#123; Component &#125; from &apos;react&apos;;</div><div class="line">import &#123; themes, ThemeContext &#125; from &apos;./Context.js&apos;</div><div class="line">import ThemedButton from &apos;./ThemedButton.js&apos;</div><div class="line"></div><div class="line">function ToolBar (props) &#123;</div><div class="line">  return (</div><div class="line">    &lt;ThemedButton&gt;</div><div class="line">      toggle theme</div><div class="line">    &lt;/ThemedButton&gt;</div><div class="line">  )</div><div class="line">&#125;</div><div class="line"></div><div class="line">class App extends Component &#123;</div><div class="line">  constructor (props) &#123;</div><div class="line">    super(props)</div><div class="line">    this.state = &#123;</div><div class="line">      theme: themes.light,</div><div class="line">      toggleTheme: this.toggleTheme</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  toggleTheme = () =&gt; &#123;</div><div class="line">    this.setState(&#123;</div><div class="line">      theme: this.state.theme === themes.dark ? themes.light : themes.dark</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;ThemeContext.Provider value=&#123;this.state&#125;&gt;</div><div class="line">        &lt;ToolBar /&gt;</div><div class="line">      &lt;/ThemeContext.Provider&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default App;</div></pre></td></tr></table></figure></p>
+<h3 id="在生命周期函数中获取context"><a href="#在生命周期函数中获取context" class="headerlink" title="在生命周期函数中获取context"></a>在生命周期函数中获取context</h3><p>当想在Consumer的子组件的生命周期函数中应用context变量时，只需将变量通过props传递即可<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">class Button extends React.Component &#123;</div><div class="line">  componentDidMount() &#123;</div><div class="line">    // ThemeContext value is this.props.theme</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentDidUpdate(prevProps, prevState) &#123;</div><div class="line">    // Previous ThemeContext value is prevProps.theme</div><div class="line">    // New ThemeContext value is this.props.theme</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    const &#123; theme, children &#125; = this.props;</div><div class="line">    return (</div><div class="line">      &lt;button style=&#123;&#123; backgroundColor: theme.background, color: theme.foreground &#125;&#125;&gt;</div><div class="line">        &#123;children&#125;</div><div class="line">      &lt;/button&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default props =&gt; (</div><div class="line">  &lt;ThemeContext.Consumer&gt;</div><div class="line">    &#123;theme =&gt; &lt;Button &#123;...props&#125; theme=&#123;theme&#125; /&gt;&#125;</div><div class="line">  &lt;/ThemeContext.Consumer&gt;</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<h3 id="利用高阶组件订阅context"><a href="#利用高阶组件订阅context" class="headerlink" title="利用高阶组件订阅context"></a>利用高阶组件订阅context</h3><p>类似于主题这种变量，很多组件都可能用到，需要在每个用到的组件外部都套上一层<code>&lt;Context.Consumer&gt;</code>，很明显，手动套的话会多出很多冗余重复的工作，这个时候可以使用高阶组件来简化工作。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">function WithTheme (Component) &#123;</div><div class="line">  return function ThemedComponent (props) &#123;</div><div class="line">    return (</div><div class="line">      &lt;ThemeContext.Consumer&gt;</div><div class="line">        &#123;theme =&gt; (</div><div class="line">          &lt;Component &#123;...props&#125; theme=&#123;theme&#125; /&gt;</div><div class="line">        )&#125;</div><div class="line">      &lt;/ThemeContext.Consumer&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Button (theme, ...rest) &#123;</div><div class="line">  return (</div><div class="line">    &lt;button className=&#123;theme&#125; &#123;...rest&#125; /&gt;</div><div class="line">  )</div><div class="line">&#125;</div><div class="line"></div><div class="line">const ThemedButton = WithTheme(Button)</div></pre></td></tr></table></figure></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/05/02/React-16-3-新特性-Context-API/">React 16.3 新特性 -- Context API</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 小蕾蕾 的个人博客">小蕾蕾</a></p>
+        <p><span>发布时间:</span>2018年05月02日 - 20时33分</p>
+        <p><span>最后更新:</span>2018年05月05日 - 14时57分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/05/02/React-16-3-新特性-Context-API/" title="React 16.3 新特性 -- Context API">http://wanglei-0707.github.io/2018/05/02/React-16-3-新特性-Context-API/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wanglei-0707.github.io/2018/05/02/React-16-3-新特性-Context-API/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/02/Object-is-VS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Object.is() VS ===</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#context的使用场景"><span class="toc-number">1.</span> <span class="toc-text">context的使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#context-API"><span class="toc-number">2.</span> <span class="toc-text">context API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React-createContext"><span class="toc-number">2.1.</span> <span class="toc-text">React.createContext()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Provider"><span class="toc-number">2.2.</span> <span class="toc-text">Provider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Consumer"><span class="toc-number">2.3.</span> <span class="toc-text">Consumer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Context实践"><span class="toc-number">3.</span> <span class="toc-text">Context实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一键切换按钮的样式"><span class="toc-number">3.1.</span> <span class="toc-text">一键切换按钮的样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过context传递一个函数"><span class="toc-number">3.2.</span> <span class="toc-text">通过context传递一个函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在生命周期函数中获取context"><span class="toc-number">3.3.</span> <span class="toc-text">在生命周期函数中获取context</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用高阶组件订阅context"><span class="toc-number">3.4.</span> <span class="toc-text">利用高阶组件订阅context</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2018/05/02/React-16-3-新特性-Context-API/" data-title="React 16.3 新特性 -- Context API" data-url="http://wanglei-0707.github.io/2018/05/02/React-16-3-新特性-Context-API/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"null"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/05/02/Object-is-VS/" title="下一篇: Object.is() VS ===">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/05/02/React-16-3-新特性-Context-API/">React 16.3 新特性 -- Context API</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/02/Object-is-VS/">Object.is() VS ===</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/26/重新调整对个人博客的态度/">重新调整对个人博客的态度</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/16/git撤销commit/">git撤销commit</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/19/React虚拟DOM和setState机制/">React虚拟DOM和setState机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/08/http-proxy-middleware中间件做代理解决跨域问题/">http-proxy-middleware中间件做代理解决跨域问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/28/mvc和mvvm模式的区别/">mvc和mvvm模式的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/08/三栏等宽布局/">三栏等宽布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/08/三栏布局/">三栏布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/React‘s-diff-algorithm/">React's diff algorithm</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/15/js中的函数声明和函数表达式/">js中的函数声明和函数表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/03/form表单无刷新提交/">form表单无刷新提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/浏览器缓存/">浏览器缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/两列布局/">两列布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/各种情况下的居中/">各种情况下的居中</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/跨域资源访问/">跨域资源访问</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/css的外边距叠加/">css的外边距叠加</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 小蕾蕾
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
