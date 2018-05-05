@@ -2563,11 +2563,12 @@ color
 .article-title {
   color: #ef6666;
   margin-left: 0px;
-  font-weight: initial;
+  padding: 30px 0;
+  font-weight: 800;
   line-height: 35px;
   margin-bottom: 20px;
   text-align: center;
-  font-size: 26px;
+  font-size: 2rem;
   -webkit-transition: color 0.3s;
   -moz-transition: color 0.3s;
   -o-transition: color 0.3s;
@@ -2614,6 +2615,7 @@ color
 }
 .article-entry p {
   margin-top: 10px;
+  text-indent: 2rem;
 }
 .article-entry p code,
 .article-entry li code {
@@ -3246,55 +3248,49 @@ color
   white-space: pre;
 }
 .article-entry p a {
-  padding: 8px 8px;
-  border-radius: 5px;
-  background-color: #f7b3b3;
   word-wrap: break-word;
   white-space: pre;
-  margin: 2px;
-  display: inline-block;
 }
 .article-entry p a.fancy-ctn.fancybox::before {
   display: none;
 }
-.article-entry p a::before {
-  padding-right: 6px;
-  content: "\f0c1";
-  font: normal normal normal 14px/1 FontAwesome;
-}
 .article-entry p a:hover {
-  color: #facfcf;
+  color: #e16f6e;
 }
 .article-entry h1 {
-  font-size: 1.5em;
+  font-size: 1.7em;
   margin-top: 30px;
 }
 .article-entry h2 {
-  font-size: 1.3em;
-  margin-top: 20px;
+  font-size: 1.5em;
   font-weight: 300;
   padding-bottom: 5px;
-  margin: 0.5em auto;
+  margin: 0.8em auto;
   font-weight: 700;
-  color: #000;
+  color: #59b3d3;
   padding-bottom: 5px;
   text-align: center;
+  text-shadow: 1px 1px 2px #77ccea;
 }
 .article-entry h2::after,
 .article-entry h2::before {
   content: " —— ";
 }
 .article-entry h3 {
-  margin: 0.5em auto;
-  color: #fff;
-  background: #f38a8a;
-  border: 1px solid #eeb6be;
+  margin: 1em auto;
+  color: #f38a8a;
   padding: 0.2em 0.6em;
-  font-weight: normal;
-  border-radius: 6px;
+  font-size: 1.3em;
+  font-weight: 600;
+  border-left: 4px solid #f38a8a;
 }
 .article-entry h3:hover {
-  content: " > ";
+  color: #f97171;
+}
+.article-entry h3:hover::after {
+  content: '#';
+  position: relative;
+  left: 8px;
 }
 .article-entry h4 {
   margin: 0.5em auto;
@@ -3352,22 +3348,9 @@ color
   list-style: decimal;
   margin: 0 10px;
 }
-.article-entry .highlight::before {
-  content: attr(data-lang) " code";
-  display: block;
-  background-color: #eeb6b6;
-  margin: 0 -10px 16px -10px;
-  padding: 8px 16px;
-  color: #efefef;
-  font-family: Lato, "Microsoft YaHei", sans-serif;
-  font-size: 1.1rem;
-  text-shadow: none;
-  border-bottom: solid 1px #bd8585;
-  text-transform: capitalize;
-}
 .article-entry .highlight {
   border-radius: 4px;
-  padding: 0 10px;
+  padding: 0 20px;
   color: #444;
 }
 .article-entry .highlight pre {
