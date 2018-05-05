@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Object.is() VS === | 小蕾蕾的个人博客</title>
+  <title>React 16.3 新特性 -- createRef() | 小蕾蕾的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天本来打算看一下React 16.3中新的特性，刚打开New context API 这个PR的时候，就看到列的TODO list中的第四条: Should we use Object.is to compare context values, or is === enough? shallowEqual uses Object.is, but we use === everywhere els">
-<meta name="keywords" content="Javascript">
+  <meta name="description" content="本文学习React 16.3新特性之createRef()，但是由于是按照官网的Refs and the DOM这一小节进行学习，会将这小节介绍的知识点都进行介绍。">
+<meta name="keywords" content="JavaScript,React">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Object.is() VS ===">
-<meta property="og:url" content="http://wanglei-0707.github.io/2018/05/02/Object-is-VS/index.html">
+<meta property="og:title" content="React 16.3 新特性 -- createRef()">
+<meta property="og:url" content="http://wanglei-0707.github.io/2018/05/05/React-16-3-新特性-createRef/index.html">
 <meta property="og:site_name" content="小蕾蕾的个人博客">
-<meta property="og:description" content="今天本来打算看一下React 16.3中新的特性，刚打开New context API 这个PR的时候，就看到列的TODO list中的第四条: Should we use Object.is to compare context values, or is === enough? shallowEqual uses Object.is, but we use === everywhere els">
-<meta property="og:updated_time" content="2018-05-02T09:18:02.000Z">
+<meta property="og:description" content="本文学习React 16.3新特性之createRef()，但是由于是按照官网的Refs and the DOM这一小节进行学习，会将这小节介绍的知识点都进行介绍。">
+<meta property="og:updated_time" content="2018-05-05T07:47:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Object.is() VS ===">
-<meta name="twitter:description" content="今天本来打算看一下React 16.3中新的特性，刚打开New context API 这个PR的时候，就看到列的TODO list中的第四条: Should we use Object.is to compare context values, or is === enough? shallowEqual uses Object.is, but we use === everywhere els">
+<meta name="twitter:title" content="React 16.3 新特性 -- createRef()">
+<meta name="twitter:description" content="本文学习React 16.3新特性之createRef()，但是由于是按照官网的Refs and the DOM这一小节进行学习，会将这小节介绍的知识点都进行介绍。">
   
     <link rel="alternative" href="/atom.xml" title="小蕾蕾的个人博客" type="application/atom+xml">
   
@@ -189,11 +189,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Object-is-VS" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-React-16-3-新特性-createRef" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/05/02/Object-is-VS/" class="article-date">
-      <time datetime="2018-05-02T08:37:51.000Z" itemprop="datePublished">2018-05-02</time>
+      <a href="/2018/05/05/React-16-3-新特性-createRef/" class="article-date">
+      <time datetime="2018-05-05T07:25:11.000Z" itemprop="datePublished">2018-05-05</time>
 </a>
     </div>
   
@@ -206,7 +206,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Object.is() VS ===
+      React 16.3 新特性 -- createRef()
     </h1>
   
 
@@ -215,13 +215,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端/">前端</a><a class="article-category-link" href="/categories/前端/Javascript/">Javascript</a>
+    <a class="article-category-link" href="/categories/前端/">前端</a><a class="article-category-link" href="/categories/前端/React/">React</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -231,13 +231,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>今天本来打算看一下React 16.3中新的特性，刚打开<a href="https://github.com/facebook/react/pull/11818" target="_blank" rel="external">New context API</a> 这个PR的时候，就看到列的TODO list中的第四条:</p>
-<p>Should we use Object.is to compare context values, or is === enough? shallowEqual uses Object.is, but we use === everywhere else.</p>
-<p>还真不知道这两中比较方式有什么区别，遂查之。</p>
+        <p>本文学习React 16.3新特性之createRef()，但是由于是按照官网的<a href="https://reactjs.org/docs/refs-and-the-dom.html" target="_blank" rel="external">Refs and the DOM</a>这一小节进行学习，会将这小节介绍的知识点都进行介绍。</p>
 <a id="more"></a>
-<p>在Stack Overflow上看到了同样的<a href="https://stackoverflow.com/questions/30543190/object-is-vs" target="_blank" rel="external">问题</a>，两个回答都讲得很详细。</p>
-<p>Object.is()是ES6中提出的，它与“===”的区别只在于判断+0，-0和NaN时的不同。具体表现如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// ===运算符</div><div class="line">+0 === -0 // true</div><div class="line">-0 === +0 // true</div><div class="line">NaN === NaN // false</div><div class="line"></div><div class="line">// Object.is()</div><div class="line">Object.is(+0, -0) // false</div><div class="line">Object.is(-0, +0) // false</div><div class="line">Object.is(NaN, NaN) // true</div></pre></td></tr></table></figure></p>
-<p>这两种方法的不同比较结果是由于其使用的比较算法不同导致的。“===”运算符使用的比较算法是<code>Strict Equality</code>，而Object.is()用的是<code>SameValue</code>。除了这两种比较算法，还有<code>SameValueZero</code>, <code>SameValueNonNumber</code>, <code>Abstract Equality</code>。具体的比较规则在<a href="http://www.ecma-international.org/ecma-262/7.0/index.html#sec-samevalue" target="_blank" rel="external">这里</a>。</p>
+<h3 id="Refs用来干什么"><a href="#Refs用来干什么" class="headerlink" title="Refs用来干什么"></a>Refs用来干什么</h3><p>Refs用来获取DOM节点或者在render函数中创建的React元素</p>
+<h3 id="什么时候使用Refs"><a href="#什么时候使用Refs" class="headerlink" title="什么时候使用Refs"></a>什么时候使用Refs</h3><p>以下情况适合使用refs：</p>
+<ol>
+<li>获取焦点，文本选择或者媒体播放</li>
+<li>触发必要的动画</li>
+<li>集成第三方DOM库</li>
+</ol>
 
       
       
@@ -247,13 +249,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/05/02/Object-is-VS/">Object.is() VS ===</a></p>
+        <p><span>本文标题:</span><a href="/2018/05/05/React-16-3-新特性-createRef/">React 16.3 新特性 -- createRef()</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 小蕾蕾 的个人博客">小蕾蕾</a></p>
-        <p><span>发布时间:</span>2018年05月02日 - 16时37分</p>
-        <p><span>最后更新:</span>2018年05月02日 - 17时18分</p>
+        <p><span>发布时间:</span>2018年05月05日 - 15时25分</p>
+        <p><span>最后更新:</span>2018年05月05日 - 15时47分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/05/02/Object-is-VS/" title="Object.is() VS ===">http://wanglei-0707.github.io/2018/05/02/Object-is-VS/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://wanglei-0707.github.io/2018/05/02/Object-is-VS/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/05/05/React-16-3-新特性-createRef/" title="React 16.3 新特性 -- createRef()">http://wanglei-0707.github.io/2018/05/05/React-16-3-新特性-createRef/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wanglei-0707.github.io/2018/05/05/React-16-3-新特性-createRef/　　作者: 小蕾蕾" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -266,18 +268,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/05/02/React-16-3-新特性-Context-API/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          React 16.3 新特性 -- Context API
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/26/重新调整对个人博客的态度/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">重新调整对个人博客的态度</div>
+    <a href="/2018/05/02/React-16-3-新特性-Context-API/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React 16.3 新特性 -- Context API</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -288,7 +281,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Refs用来干什么"><span class="toc-number">1.</span> <span class="toc-text">Refs用来干什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么时候使用Refs"><span class="toc-number">2.</span> <span class="toc-text">什么时候使用Refs</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -336,7 +329,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2018/05/02/Object-is-VS/" data-title="Object.is() VS ===" data-url="http://wanglei-0707.github.io/2018/05/02/Object-is-VS/"></div>
+    <div class="ds-thread" data-thread-key="2018/05/05/React-16-3-新特性-createRef/" data-title="React 16.3 新特性 -- createRef()" data-url="http://wanglei-0707.github.io/2018/05/05/React-16-3-新特性-createRef/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -359,13 +352,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/05/02/React-16-3-新特性-Context-API/" title="上一篇: React 16.3 新特性 -- Context API">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2018/04/26/重新调整对个人博客的态度/" title="下一篇: 重新调整对个人博客的态度">
+            <a href="/2018/05/02/React-16-3-新特性-Context-API/" title="下一篇: React 16.3 新特性 -- Context API">
                 <i class="fa fa-angle-right"></i>
             </a>
         
